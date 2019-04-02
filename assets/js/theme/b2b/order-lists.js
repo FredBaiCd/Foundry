@@ -41,7 +41,7 @@ export default function(context) {
 	//	    {"product_id": ,
 	//	     "variant_id": ,
 	//	     "qty": ,
-	//	     "options_list":
+	//	     "options_list": 
 	//      }
 	//	]
 	//}
@@ -482,9 +482,9 @@ export default function(context) {
 					                <ul aria-hidden="false" class="dropdown-menu" data-dropdown-content="" id="shoppinglist-dropdown-${order_id}" tabindex="-1">
 						                <li><a href="#" class="button" add-to-new-list>Add to New Shopping List</a></li>
 					                </ul>
-
+	                                
 	                            </div>
-
+	                            
 	                        </td>
 	                    </tr>`;*/
 
@@ -529,7 +529,7 @@ export default function(context) {
 
 	}
 
-	// sort: Object
+	// sort: Object 
 	// -- name
 	// -- value
 	// sort_filter_name
@@ -854,48 +854,6 @@ export default function(context) {
 			error: function(jqXHR, textStatus, errorThrown) {
 				$overlay.hide();
 				console.log("error", JSON.stringify(jqXHR));
-			}
-		});
-
-	});
-
-	$("body").on("click", '[receive-invoice]', (event) => {
-		event.preventDefault();
-		const $target = $(event.target);
-		const $tr = $target.parents("tr");
-		const orderId = $tr.attr("data-order-id");
-
-		if (gOrderProducts && gOrderProducts[orderId] && gOrderProducts[orderId].length > 0) {
-		} else {
-			return swal({
-				type: "error",
-				text: "Some products in the order are no longer available."
-			});
-		}
-		const postData = {
-			'store_hash': `${config.storeHash}`,
-			'order_id': orderId
-		};
-
-		$.ajax({
-			type: "POST",
-			url: `${config.apiRootUrl}/invoiceRemind`,
-			contentType: "application/json",
-			data: JSON.stringify(postData),
-			success: (data) => {
-				if (data.code == 200) {
-					swal({
-						type: "success",
-						text: "Receive Paypal Invoice success."
-					});
-				}
-			},
-			error: () => {
-				$overlay.hide();
-				swal({
-					type: "error",
-					text: "There has some error, please try again."
-				});
 			}
 		});
 
