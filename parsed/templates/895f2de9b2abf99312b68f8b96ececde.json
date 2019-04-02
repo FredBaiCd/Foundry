@@ -1,0 +1,1 @@
+{"components/b2b/cart-content-data":"\r\n{{#each cart.items}}\r\n<div class=\"item\" data-item-id=\"{{id}}\" data-item-sku=\"{{sku}}\" data-item-productId=\"{{product_id}}\" data-item-quantity=\"{{quantity}}\" data-item-options=\"{{JSONstringify options}}\"></div>\r\n{{/each}}\n"}

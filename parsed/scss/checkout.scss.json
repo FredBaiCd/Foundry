@@ -1,0 +1,1 @@
+{"checkout.scss":"/*! Theme: Foundry v1.11.0 */\n.header {\n  //scss-lint:disable NameFormat\n  background-color: stencilColor(\"header-background-color\");\n}\n\n.header-logo {\n  padding: 20px 40px;\n  text-align: center;\n\n  img {\n    max-width: 200px;\n    max-height: 85px;\n  }\n}\n"}

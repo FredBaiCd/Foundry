@@ -1,0 +1,39 @@
+{
+  "name": "Foundry",
+  "description": "Foundry for BigCommerce.",
+  "version": "1.11.0",
+  "private": true,
+  "dependencies": {
+    "@bigcommerce/stencil-utils": "^1.0.5",
+    "async": "^2.1.4",
+    "bc-baseline": "bitbucket:pixelunion/bc-baseline",
+    "bc-carousel": "bitbucket:pixelunion/bc-carousel",
+    "bc-modal": "bitbucket:pixelunion/bc-modal",
+    "bc-quick-shop": "bitbucket:pixelunion/bc-quick-shop",
+    "bc-tabs": "bitbucket:pixelunion/bc-tabs",
+    "bourbon": "^4.2.7",
+    "bourbon-neat": "^1.8.0",
+    "flickity": "^2.0.5",
+    "history.js": "github:browserstate/history.js",
+    "hmps-animate.scss": "github:hmps/animate.scss",
+    "imagesloaded": "^4.1.1",
+    "jquery": "^3.1.1",
+    "jquery-trend": "^0.1.0",
+    "jspm-nodelibs-url": "github:jspm/nodelibs-url",
+    "lodash": "^4.17.4",
+    "nod-validate": "github:casperin/nod",
+    "normalize.scss": "^0.1.0",
+    "scrollreveal": "^3.3.2",
+    "validetta": "github:pixelunion/validetta",
+    "sweetalert2": "^6.10.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "es6-shim": "^0.35.2",
+    "shelljs": "^0.7.6",
+    "webpack": "^1.14.0"
+  }
+}

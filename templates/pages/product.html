@@ -1,0 +1,49 @@
+---
+product:
+  reviews:
+    limit: {{theme_settings.product_page_reviews_count}}
+  related_products:
+    limit: {{theme_settings.product_page_products_related}}
+  videos: true
+---
+
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block">
+    <div class="single-product-wrap" data-product-container>
+
+      <!-- Left Column -->
+      <div class="single-product-left {{#compare product.images.length 1 operator='>'}}has-thumbnails{{/compare}}">
+        <div class="single-product-slideshow-wrapper">
+          {{> components/products/product/product-slideshow}}
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="single-product-right">
+        {{> components/products/product/product-details}}
+      </div>
+
+    </div>
+  </section>
+
+  {{#if product.related_products.length}}
+    {{#if theme_settings.product_page_products_related}}
+      {{> components/products/related
+        products=product.related_products
+    
+        rowcount=theme_settings.related_products_per_row
+        crop=theme_settings.grid_aspect_ratio}}
+    {{/if}}
+  {{/if}}
+
+  {{> core/structured-data/product}}
+  {{> core/structured-data/product-reviews}}
+
+{{/partial}}
+
+{{> layout/base}}

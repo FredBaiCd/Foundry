@@ -1,0 +1,29 @@
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block">
+
+    <div class="page-header">
+      <h1 class="page-title">
+        {{#if forms.wishlist.id}}
+          {{lang 'core.account.wishlists.edit'}}
+        {{else}}
+          {{lang 'core.account.wishlists.new'}}
+        {{/if}}
+      </h1>
+    </div>
+
+    <div class="page-container account-container">
+      <div class="page-content page-form account-form">
+        {{> core/account/add-wishlist}}
+      </div>
+    </div>
+
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

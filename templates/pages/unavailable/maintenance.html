@@ -1,0 +1,36 @@
+{{#partial "page"}}
+
+  <section class="layout-block">
+
+    <div class="page-header">
+      <figure class="page-header-logo centered">
+        {{#if settings.store_logo.image.data}}
+          <img src="{{getImage settings.store_logo.image 'account-logo'}}" alt="{{settings.store_logo.image.alt}}">
+        {{/if}}
+      </figure>
+      <h1 class="page-title centered">
+        {{#if settings.maintenance.header}}
+          {{{settings.maintenance.header}}}
+        {{else}}
+          {{lang 'unavailable.maintenance_title'}}
+        {{/if}}
+      </h1>
+    </div>
+
+    <div class="page-container">
+      <div class="page-content centered">
+        <p class="maintenance-message">
+          {{#if settings.maintenance.message}}
+            {{{settings.maintenance.message}}}
+          {{else}}
+            {{> components/alerts/alert-error (lang 'unavailable.maintenance_message')}}
+          {{/if}}
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+{{/partial}}
+
+{{> layout/unavailable}}

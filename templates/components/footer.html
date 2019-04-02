@@ -1,0 +1,279 @@
+<footer class="main-footer">
+  <div class="container">
+
+    <section class="footer-left">
+
+      {{#if social_media.length}}
+        <div class="footer-navigation">
+          <h3 class="footer-section-title">{{lang 'footer.headings.social_media'}}</h3>
+          <ul>
+            {{#each social_media}}
+              <li class="footer-navigation-list-item">
+                {{#compare display_name 'google+' operator='==='}}
+                  <a href="{{url}}" class="google" target="_blank">
+                    <i class="icon-google"></i> Google+
+                  </a>
+                {{else}}
+                  <a href="{{url}}" class="{{display_name}}" target="_blank">
+                    <i class="icon-{{display_name}}"></i> {{display_name}}
+                  </a>
+                {{/compare}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+
+      {{#if theme_settings.footer_menu '===' 'footer-show-pages' }}
+        {{#if pages.length}}
+          {{> components/footer-navigation nav_items=pages}}
+        {{/if}}
+      {{else if theme_settings.footer_menu '===' 'footer-show-categories'}}
+        {{> components/footer-navigation nav_items=categories view_all=false}}
+      {{else}}
+        {{> components/footer-navigation nav_items=shop_by_brand view_all=true}}
+      {{/if}}
+
+      <div class="footer-navigation">
+        <h3 class="footer-section-title">{{lang 'footer.headings.user_links'}}</h3>
+        <ul>
+          {{#if settings.gift_certificates_enabled}}
+            <li class="footer-navigation-list-item">
+              <a href="{{urls.gift_certificate.purchase}}">{{lang 'footer.gift_certificate'}}</a>
+            </li>
+          {{/if}}
+
+          {{#if settings.show_wishlist}}
+            {{#if customer}}
+              <li class="footer-navigation-list-item">
+                <a href="{{urls.account.wishlists.all}}">{{lang 'footer.wishlist'}}</a>
+              </li>
+            {{/if}}
+          {{/if}}
+
+          {{#if settings.account_creation_enabled}}
+            {{#if customer}}
+              <li class="footer-navigation-list-item">
+                <a href="{{urls.account.index}}">{{lang 'footer.your_account'}}</a>
+              </li>
+              <li class="footer-navigation-list-item">
+                <a href="{{urls.auth.logout}}">{{lang 'footer.log_out'}}</a>
+              </li>
+            {{else}}
+              <li class="footer-navigation-list-item">
+                <a href="{{urls.auth.login}}">{{lang 'footer.log_in'}}</a>
+              </li>
+              <li class="footer-navigation-list-item">
+                <a href="{{urls.auth.create_account}}">{{lang 'footer.sign_up'}}</a>
+              </li>
+            {{/if}}
+          {{/if}}
+        </ul>
+      </div>
+
+    </section>
+
+    <div class="footer-currency-selector">
+      <p class="footer-currency-selector-title show-for-sr">{{lang 'footer.headings.select_currency'}}</p>
+      {{> components/currency-selector is-mobile=true}}
+    </div>
+
+    <section class="footer-right">
+
+      {{#if settings.show_newsletter_box}}
+        <div class="footer-newsletter">
+          <h3 class="footer-section-title">{{lang 'newsletter.heading'}}</h3>
+          <form class="footer-newsletter-form form" action="{{urls.subscribe.action}}" method="post">
+            <input type="hidden" name="action" value="subscribe">
+            <input type="hidden" name="nl_first_name" value="bc">
+            <input type="hidden" name="check" value="1">
+            <label class="form-label show-for-sr" for="nl_email">{{lang 'newsletter.email'}}</label>
+            <input class="newsletter-signup-email form-input" id="nl_email" name="nl_email" type="email" value="{{customer.email}}" placeholder="{{lang 'newsletter.email'}}">
+            <div class="newsletter-signup-submit">
+              <input class="submit button" type="submit" value="{{lang 'newsletter.subscribe'}}">
+            </div>
+          </form>
+        </div>
+      {{/if}}
+        <div id="HouzzContainer">
+            <img src="{{cdn "img/houzz2017.jpg"}}">
+        </div>
+      <div class="footer-payment-icons">
+        <ul class="footer-payment-icons-list">
+          {{#if theme_settings.payment_visa}}
+            <li><i class="icon-visa"></i></li>
+          {{/if}}
+
+          {{#if theme_settings.payment_mastercard}}
+            <li><i class="icon-mastercard"></i></li>
+          {{/if}}
+
+          {{#if theme_settings.payment_american_express}}
+            <li><i class="icon-americanexpress"></i></li>
+          {{/if}}
+
+          {{#if theme_settings.payment_discover}}
+            <li><i class="icon-discover"></i></li>
+          {{/if}}
+
+          {{#if theme_settings.payment_paypal}}
+            <li><i class="icon-paypal"></i></li>
+          {{/if}}
+
+          {{#if theme_settings.payment_apple_pay}}
+            <li><i class="icon-apple-pay"></i></li>
+          {{/if}}
+        </ul>
+      </div>
+
+      {{#if theme_settings.theme_credits}}
+        <div class="footer-attribution">
+          <p>Foundry {{lang 'footer.credits.theme_by'}} <a href="http://pixelunion.net" target="_blank" rel="nofollow">Pixel Union</a>, {{lang 'footer.credits.powered_by'}} <a href="http://www.bigcommerce.com/" target="_blank" rel="nofollow">BigCommerce</a></p>
+        </div>
+      {{/if}}
+
+      {{#if theme_settings.theme_copyright}}
+        <div class="footer-copyright">
+          <p>{{lang 'footer.credits.copyright' name=settings.store_name}} &copy; <script>document.write(new Date().getFullYear())</script></p>
+        </div>
+      {{/if}}
+    </section>
+
+  </div>
+
+  <div class="footer-contact">
+    {{#if settings.address.length}}
+      <p>
+        {{ settings.address }}
+      </p>
+    {{/if}}
+
+    {{#if settings.phone_number.length}}
+      <p>
+        {{ settings.phone_number }}
+      </p>
+    {{/if}}
+  </div>
+</footer>
+<!-- temp snippets for AP Development 
+  <script>if(window.location.href.indexOf("gallery")>-1){console.log('gallery page detected...load gallery scripts');var head=document.getElementsByTagName('head')[0];var gjs=document.createElement('script');gjs.type='text/javascript';gjs.src='/content/bc-gallery/js/bc-gallery.js';head.appendChild(gjs);}</script>
+<script type="text/javascript" src="/content/bc-gallery/js/popup.js"></script>  -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/content/custom/custom-scripts.js"></script>
+<!-- BC Gallery files -->
+<script type="text/javascript" src="/content/bc-gallery/js/bc-gallery.js"></script>
+
+<!-- tooltip color/image -->
+<style> span.tooltip-icon { background: url(//cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/question-mark-gray.png) no-repeat;}</style>
+
+<div style="display:none;" id="tooltip-list">
+
+    <!-- enter tooltip data/content below -->
+     <div class="tooltip-item">
+        <div class="tooltip-title">Gate Width</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/width-and-height-image.jpg?t=1490820706&_ga=1.20280696.1930763316.1485274129" /></div>
+    </div>
+
+    <div class="tooltip-item">
+        <div class="tooltip-title">Gate Height</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/width-and-height-image.jpg?t=1490820706&_ga=1.20280696.1930763316.1485274129" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+         <div class="tooltip-title">Frame Thickness</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/frame-thickness.jpg?t=1492454077&_ga=1.140993590.580600017.1487635692" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+         <div class="tooltip-title">Frame Thickness (Upgrade 2-1/8" = $360)</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/frame-thickness.jpg?t=1492454077&_ga=1.140993590.580600017.1487635692" /></div>
+    </div>
+    <div class="tooltip-item">
+        <div class="tooltip-title">Stain Options (Add $140)</div>
+        <div class="tooltip-content pdf">stain-options.pdf</div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Stain Options (Add $280)</div>
+        <div class="tooltip-content pdf">stain-options.pdf</div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Stain Options (Add $420)</div>
+        <div class="tooltip-content pdf">stain-options.pdf</div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Hardware Bundles (incl prep and jambs)</div>
+         <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/hardware-bundle-options-single-swing-updated.jpg?t=1493246076&_ga=1.20225400.1930763316.1485274129" /></div>
+    </div>
+    <div class="tooltip-item">
+        <div class="tooltip-title">Hardware Bundle Option</div>
+         <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/hardware-bundle-options-driveway.jpg?t=1494450515&_ga=2.17892089.1729182210.1494450559-1930763316.1485274129" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Hardware Option</div>
+         <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/hardware-bundle-options-driveway.jpg?t=1491340874&_ga=1.258840778.1930763316.1485274129" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Copper Cap</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/copper-cap.jpg?t=1490810395&_ga=1.50762345.1930763316.1485274129" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Hardware Bundle Options</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/hardware-bundle-options-double-swing-updated.jpg?t=1493248207&_ga=1.254590408.1930763316.1485274129" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Select Gate Swing</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/handing-ds.jpg?t=1491339315&_ga=1.45514212.1930763316.1485274129" /></div>
+    </div>
+    
+   <div class="tooltip-item">
+        <div class="tooltip-title">Gate Swing (select one)</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/handing.jpg?t=1494453962&_ga=2.203906072.90721015.1494453946-1930763316.1485274129" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Clavos</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/clavos-option.jpg?t=1493242503&_ga=1.225358426.1930763316.1485274129" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Gate Width</div>
+        <div class="tooltip-content">Enter tooltip text here</div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Gate Height</div>
+        <div class="tooltip-content"><img src="http://placehold.it/800x800/" />Enter tooltip text here</div>
+    </div>
+    
+      <div class="tooltip-item">
+        <div class="tooltip-title">Select Gate Height</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/width-and-height-image-driveway.jpg?t=1491342414&_ga=1.226931933.1930763316.1485274129" /></div>
+    </div>
+    
+    <div class="tooltip-item">
+        <div class="tooltip-title">Select Gate Width</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/width-and-height-image-driveway.jpg?t=1491342414&_ga=1.226931933.1930763316.1485274129" /></div>
+    </div>
+    
+  <div class="tooltip-item">
+        <div class="tooltip-title">Select Swing</div>
+        <div class="tooltip-content"><img src="https://cdn6.bigcommerce.com/s-d8f8g8yrzc/product_images/uploaded_images/handing.jpg?t=1491242028&_ga=1.226849245.1930763316.1485274129" /></div>
+    </div>
+
+    <div class="tooltip-item">
+        <div class="tooltip-title">Frame Thickness</div>
+        <div class="tooltip-content">Enter tooltip text here</div>
+    </div>
+    <!-- end tooltip content/data -->
+</div>
+
+

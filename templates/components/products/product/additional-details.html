@@ -1,0 +1,142 @@
+
+<!-- for b2b -->
+{{#if product.price.without_tax}}
+<span b2b-product-base-price="{{product.price.without_tax.value}}"></span>
+{{else}}
+<span b2b-product-base-price="{{product.price.with_tax.value}}"></span>
+{{/if}}
+
+<div class="single-product-meta-wrap">
+  {{#if product.stock_level}}
+    <div class="single-product-meta-item single-product-meta-item-stock">
+      <span class="single-product-meta-item-label">{{lang 'products.current_stock'}}:</span>
+      <span class="single-product-meta-item-value">{{product.stock_level}}</span>
+    </div>
+  {{/if}}
+    
+    <div class="single-product-meta-item single-product-meta-item-product-price">
+      {{#if product.call_for_price}}
+        <div class="product-call-for-price">
+          {{product.call_for_price}}
+        </div>
+      {{else}}
+        {{> components/products/price context="product" price=product.price show_savings=true}}
+      {{/if}}
+    </div>
+  {{#if product.sku}}
+    <div class="single-product-meta-item single-product-meta-item-sku">
+      <span class="single-product-meta-item-label">{{lang 'product.sku'}}:</span>
+      <span class="single-product-meta-item-value" data-product-sku>{{product.sku}}</span>
+    </div>
+  {{/if}}
+  {{#if product.upc}}
+    <div class="single-product-meta-item single-product-meta-item-upc">
+      <span class="single-product-meta-item-label">{{lang 'product.upc'}}:</span>
+      <span class="single-product-meta-item-value" data-product-upc>{{product.upc}}</span>
+    </div>
+  {{/if}}
+  {{#if product.release_date}}
+    <div class="single-product-meta-item single-product-meta-item-release-date">
+      <span class="single-product-meta-item-label">{{lang 'product.release_date'}}:</span>
+      <span class="single-product-meta-item-value">{{product.release_date}}</span>
+    </div>
+  {{/if}}
+
+  {{#if product.width}}
+    <div class="single-product-meta-item single-product-meta-item-size">
+      <span class="single-product-meta-item-label">{{lang 'product.size.label'}}:</span>
+      <span class="single-product-meta-item-value">
+        {{#if product.width}}
+          {{product.width}}
+          {{lang 'product.size.width'}}
+        {{/if}}
+        &times;
+        {{#if product.height}}
+          {{product.height}}
+          {{lang 'product.size.height'}}
+        {{/if}}
+        &times;
+        {{#if product.depth}}
+          {{product.depth}}
+          {{lang 'product.size.length'}}
+        {{/if}}
+      </span>
+    </div>
+  {{/if}}
+
+  {{#if product.condition}}
+    <div class="single-product-meta-item single-product-meta-item-condition">
+      <span class="single-product-meta-item-label">{{lang 'product.condition'}}:</span>
+      <span class="single-product-meta-item-value">{{product.condition}}</span>
+    </div>
+  {{/if}}
+  {{#if product.availability}}
+    <div class="single-product-meta-item single-product-meta-item-availability">
+      <span class="single-product-meta-item-label">{{lang 'product.availability'}}:</span>
+      <span class="single-product-meta-item-value">{{product.availability}}</span>
+    </div>
+  {{/if}}
+  {{#if product.weight}}
+    <div class="single-product-meta-item single-product-meta-item-weight">
+      <span class="single-product-meta-item-label">{{lang 'product.weight'}}:</span>
+      <span class="single-product-meta-item-value" data-product-weight>{{product.weight}}</span>
+    </div>
+  {{/if}}
+  {{#if product.gift_wrapping_available}}
+    <div class="single-product-meta-item single-product-meta-item-gift-wrapping">
+      <span class="single-product-meta-item-label">{{lang 'product.gift_wrapping'}}:</span>
+      <span class="single-product-meta-item-value">{{lang 'product.gift_wrapping_available'}}</span>
+    </div>
+  {{/if}}
+  {{#if product.warranty}}
+    <div class="single-product-meta-item single-product-meta-item-warranty">
+      <span class="single-product-meta-item-label">{{lang 'product.warranty'}}:</span>
+      <span class="single-product-meta-item-value">{{nl2br product.warranty}}</span>
+    </div>
+  {{/if}}
+  {{#if product.shipping}}
+    {{#if product.shipping.calculated}}
+      <div class="single-product-meta-item single-product-meta-item-shipping">
+        <span class="single-product-meta-item-label">{{lang 'product.shipping'}}:</span>
+        <span class="single-product-meta-item-value">{{lang 'product.shipping_calculated'}}</span>
+      </div>
+    {{else}}
+      {{#compare product.shipping.price 0 operator='==='}}
+        <div class="single-product-meta-item single-product-meta-item-shipping">
+          <span class="single-product-meta-item-label">{{lang 'product.shipping'}}:</span>
+          <span class="single-product-meta-item-value">{{lang 'product.shipping_free'}}</span>
+        </div>
+      {{else}}
+        <div class="single-product-meta-item single-product-meta-item-shipping">
+          <span class="single-product-meta-item-label">{{lang 'product.shipping'}}:</span>
+          <span class="single-product-meta-item-value">{{lang 'product.shipping_fixed' amount=product.shipping.price.formatted}}</span>
+        </div>
+      {{/compare}}
+    {{/if}}
+  {{/if}}
+    
+  {{#each product.custom_fields}}
+    <div class="single-product-meta-item single-product-meta-item-custom-fields">
+      <span class="single-product-meta-item-label">{{name}}:</span>
+      <span class="single-product-meta-item-value">{{value}}</span>
+    </div>
+  {{/each}}
+  {{#if product.bulk_discount_rates.length}}
+    <div class="single-product-meta-item single-product-meta-item-bulk-discounts single-product-bulk-discounts">
+      <span class="single-product-meta-item-label">{{lang 'product.bulk_pricing.title'}}</span>
+      <span class="single-product-meta-item-value">
+        <a href="#" class="product-bulk-pricing-toggle">{{lang 'product.bulk_pricing.see_pricing'}}</a>
+      </span>
+      {{> components/products/bulk-pricing}}
+    </div>
+  {{/if}}
+
+  {{#if product.detail_messages}}
+    <div class="single-product-meta-item single-product-meta-item-detail-messages">
+      <span class="single-product-meta-item-label">{{lang 'product.message'}}</span>
+      <span class="single-product-meta-item-value">
+        {{product.detail_messages}}
+      </span>
+    </div>
+  {{/if}}
+</div>

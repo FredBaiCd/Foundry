@@ -1,0 +1,84 @@
+---
+product_results:
+  limit: {{theme_settings.product_results_per_page}}
+---
+
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block" catalog-listing-wrap>
+    <div class="search-header">
+      <ul class="search-tabs" data-tabs>
+        <li class="search-tab-title tab-title active">
+          <a href="#search-results-products" class="tab-link">
+            {{lang 'search.tabs.products'}} ({{pagination.product_results.total}})
+          </a>
+        </li>
+        <li class="search-tab-title tab-title">
+          <a href="#search-results-content" class="tab-link">
+            {{lang 'search.tabs.information'}} ({{{lang 'search.content_tab_count' count=content_results.length}}})
+          </a>
+        </li>
+      </ul>
+
+      {{{snippet 'search'}}}
+    </div>
+  </section>
+
+  <div class="layout-block search-tab-content"  catalog-listing-wrap>
+
+    <div class="search-tab-content-panel search-results-products active" id="search-results-products">
+      <section class="layout-block product-grid">
+        <div class="product-grid-container {{#if product_results.faceted_search_enabled}}has-sidebar{{/if}}">
+
+          {{#if product_results.products.length}}
+            {{#if product_results.facets.length}}
+              {{#if product_results.faceted_search_enabled}}
+                <div class="product-grid-sidebar">
+                  {{> components/sorting sort=pagination.search.sort}}
+
+                  <div class="product-grid-filters">
+                    {{> components/search/filters}}
+                  </div>
+                </div>
+              {{/if}}
+            {{/if}}
+          {{/if}}
+
+          <div class="product-grid-list" data-quickshop>
+            {{> components/search/product-index}}
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="search-tab-content-panel search-results-content" id="search-results-content">
+      <div class="page-container">
+        {{#if content_results}}
+          {{#each content_results}}
+            <div class="search-result-item">
+              <h3 class="search-result-item-title">{{title}}</h3>
+              <div class="search-result-item-content">
+                {{{content}}}
+              </div>
+              <a href="{{url}}" class="button button-small search-result-item-more">{{lang 'search.read_more'}}</a>
+            </div>
+          {{/each}}
+        {{else}}
+          {{> core/alerts/alert-info (lang 'search.empty_for_content' query=forms.search.query)}}
+        {{/if}}
+      </div>
+    </div>
+
+  </div>
+
+<script type="quoteninja-results">
+{{{json product_results.products}}}
+</script>
+
+{{/partial}}
+
+{{> layout/base}}

@@ -1,0 +1,27 @@
+<a class="cart-extras-tab gift-cert-redeem" data-form-reveal>
+  {{lang 'cart.gift_certificates.add_certificate'}}
+</a>
+
+<div class="cart-extras hidden" data-toggled-form>
+  <a href="#" class="cart-extras-tab cart-extras-cancel" data-form-hide>
+    {{lang 'cart.gift_certificates.cancel'}}
+  </a>
+  <p><strong>{{lang 'cart.gift_certificates.add_cert_label'}}</strong></p>
+  <form class="form giftcert-form" method="post" action="{{urls.cart}}" data-form-type="giftcertificate">
+    <div class="form-input-wrapper">
+      <input class="form-input" data-empty-error="{{lang 'cart.gift_certificates.empty_error'}}" type="text" name="certcode" value="" placeholder="{{lang 'cart.gift_certificates.add_cert_label'}}" data-form-value>
+    </div>
+    <input class="button giftcert-submit" type="submit" value="{{lang 'cart.gift_certificates.button'}}" data-form-submit>
+    <input type="hidden" name="action" value="applycoupon">
+  </form>
+</div>
+
+{{#if cart.gift_certificates}}
+  <div class="giftcerts-redeemed">
+    {{#each cart.gift_certificates}}
+        {{lang 'cart.gift_certificates.giftcert' code=code}}
+        <a href="{{remove_url}}">{{lang 'cart.gift_certificates.remove_link'}}</a>
+        <h2>{{lang 'cart.coupons.coupon_code'}}</h2>
+    {{/each}}
+  </div>
+{{/if}}

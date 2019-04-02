@@ -1,0 +1,35 @@
+---
+customer:
+  orders:
+    limit: 10
+---
+
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block">
+
+    <div class="page-header">
+      <h1 class="page-title">
+        {{lang 'core.account.orders.heading_all'}}
+      </h1>
+    </div>
+
+    <div class="page-container account-container b2b-wrap order-lists-wrap">
+      <div class="page-content page-form account-form">
+        {{> core/account/orders/all}}
+        {{{snippet 'account'}}}
+      </div>
+    </div>
+
+    <!-- // for bundleb2b -->
+    <div id="modal-new-shopping-list-order" class="bc-modal"></div>
+
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

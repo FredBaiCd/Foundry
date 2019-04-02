@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js" lang="{{ locale_name }}">
+
+<head>
+  <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+  {{{head.meta_tags}}}
+
+  <title>{{head.title}}</title>
+
+  {{{head.config}}}
+
+  <link href="{{head.favicon}}" rel="shortcut icon">
+
+  <style type="text/css">
+    @font-face {
+      font-family: "form-icons";
+      src: url({{cdn "assets/fonts/form-icons.eot"}});
+      src: url({{cdn "assets/fonts/form-icons.eot?#iefix"}}) format("embedded-opentype"),
+           url({{cdn "assets/fonts/form-icons.woff"}}) format("woff"),
+           url({{cdn "assets/fonts/form-icons.woff2"}}) format("woff2"),
+           url({{cdn "assets/fonts/form-icons.ttf"}}) format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+{{{stylesheet '/assets/sweetalert/dist/sweetalert2.min.css'}}}
+
+  {{{stylesheet '/assets/css/theme.css'}}}
+
+  {{getFontsCollection}}
+
+  {{{head.scripts}}}
+  {{{head.rsslinks}}}
+
+  {{> components/common/theme-object}}
+  {{> components/global-injects}}
+  {{{snippet 'html_head'}}}
+
+  {{> core/structured-data/website}}
+  <!-- AP CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="/content/custom/custom.css" />
+<!-- BC Gallery CSS -->
+<link rel="stylesheet" href="/content/bc-gallery/css/bc-gallery.css" />
+
+<link href="https://quoteninja-cdn.firebaseapp.com/styles.min.css" rel="stylesheet" type="text/css"/>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PRPNK2J');</script>
+<!-- End Google Tag Manager -->
+
+
+{{inject 'urls' urls}}
+{{inject "page_templete" template}}
+{{inject "customer" customer}}
+{{inject "b2bSettings" settings}}
+
+<!-- <script src="./dist/sweetalert2.min.js"></script> -->
+      <!-- <link rel="stylesheet" href="./dist/sweetalert2.min.css"> -->
+<script src="{{cdn '/assets/sweetalert/dist/sweetalert2.min.js'}}"></script>
+
+
+</head>
+
+<body class="{{> components/body-classes}} mobile-nav-closed" data-currency-token="{{settings.money.currency_token}}" data-currency-location="{{settings.money.currency_location}}">
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRPNK2J"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  {{#if page_type '===' 'product'}}
+    {{> components/common/facebook-like}}
+  {{else if page_type '===' 'blog'}}
+    {{> components/common/facebook-like}}
+  {{else if page_type '===' 'blog_post'}}
+    {{> components/common/facebook-like}}
+  {{/if}}
+
+  {{#if theme_settings.show_quick_shop}}
+    <div class="quick-shop-wrapper" data-quick-shop-wrapper>
+      <div class="quick-shop" data-quick-shop></div>
+      {{> components/common/spinner}}
+      <button class="quick-shop-close" data-quick-shop-close>
+        <i class="icon-close"></i>
+      </button>
+    </div>
+  {{/if}}
+
+  {{> components/header-banners}}
+
+  {{#if theme_settings.header_layout '===' 'left-aligned'}}
+    {{> components/header}}
+  {{else}}
+    {{> components/header-alternate}}
+  {{/if}}
+
+  <div class="main-content">
+    {{#block "page"}}{{/block}}
+  </div>
+
+  {{#if banners.bottom}}
+    <section class="page-banner page-banner-bottom">
+      {{#each banners.bottom}}
+        <div class="page-banner-inner">
+          <div class="banner rte">
+            {{{this}}}
+          </div>
+        </div>
+      {{/each}}
+    </section>
+  {{/if}}
+
+  {{> components/footer}}
+
+  {{> core/structured-data/breadcrumbs}}
+
+  <script src="{{cdn '/assets/js/bundle.js'}}"></script>
+  <script>
+    // Exported in app.js
+    window.stencilBootstrap("{{template_file}}", {{jsContext}}).load();
+    window.QUOTENINJA_STOREID = "d8f8g8yrzc";
+</script>
+<script src='https://quoteninja-cdn.firebaseapp.com/vendor.min.js'></script>
+<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
+<script src="https://quoteninja-cdn.firebaseapp.com/stencil.js"></script>
+
+  {{{footer.scripts}}}
+  {{{snippet 'footer'}}}
+<!-- start number replacer -->
+<script type="text/javascript"><!--
+vs_account_id      = "Ch4Nm1nEDW00zwAy";
+//--></script>
+<script type="text/javascript" src="https://rw1.marchex.io/euinc/number-changer.js">
+</script>
+<!-- end ad widget -->
+</body>
+</html>

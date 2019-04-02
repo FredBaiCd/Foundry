@@ -1,0 +1,23 @@
+<header class="main-header {{theme_settings.logo-position}}" role="banner">
+  <section class="header-inner">
+
+    <div class="header-branding">
+      {{#if settings.store_logo.image}}
+        <a class="header-branding-logo" href="{{urls.home}}">
+          <img class="header-branding-image" src="{{getImage settings.store_logo.image 'logo'}}" alt="{{settings.store_logo.title}}">
+        </a>
+      {{else}}
+        <h1 class="header-branding-text">
+          <a href="{{urls.home}}">{{settings.store_logo.title}}</a>
+        </h1>
+      {{/if}}
+    </div>
+
+    {{> components/header-tools}}
+
+    {{{snippet 'header'}}}
+
+  </section>
+</header>
+
+{{> components/navigation}}

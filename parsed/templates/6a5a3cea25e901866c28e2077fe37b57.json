@@ -1,0 +1,1 @@
+{"components/common/forms/text":"\n<div class=\"form-field\">\n  <label class=\"form-label\" for=\"{{id}}\">{{label}}</label>\n  <input type=\"text\" id=\"{{id}}\" name=\"{{name}}\" {{#if value}}value=\"{{value}}\"{{/if}} class=\"form-input {{class}}\" aria-required=\"{{required}}\" {{#if style}}style=\"{{style}}\"{{/if}}>\n</div>\n"}

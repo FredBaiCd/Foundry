@@ -1,0 +1,57 @@
+{{inject 'carouselDelay' carousel.swap_frequency}}
+
+<section class="layout-block carousel-wrap {{#if theme_settings.homepage_carousel_width '===' 'slide-fullwidth'}}slide-fullwidth{{else}}slide-fixed{{/if}}">
+  <section class="carousel
+    {{#if theme_settings.homepage_carousel_transition '===' 'slide-transition'}}slide-transition{{else}}fade-transition{{/if}}">
+
+    <div class="carousel-slides" data-carousel-slides>
+      {{#each carousel.slides}}
+        <figure class="carousel-item">
+          <a class="carousel-item-image" href="{{url}}">
+            <img src="{{this.image}}" alt="{{{alt_text}}}" />
+          </a>
+          <figcaption class="carousel-item-info">
+            {{#unless button_text}}{{#if url}}
+              <a class="carousel-item-link" href="{{url}}">
+            {{/if}}{{/unless}}
+              <div class="carousel-item-info-container">
+                <div class="carousel-item-info-align">
+                    <div class="carousel-item-background">
+                      {{#if heading}}
+                        <h2 class="carousel-item-heading">{{{heading}}}</h2>
+                      {{/if}}
+                      {{#if text}}
+                        <p class="carousel-item-text">{{{text}}}</p>
+                      {{/if}}
+                    </div>
+                    <div class="clear"></div>
+                      {{#if button_text}}
+                        <a class="carousel-item-button button" {{#if url}}href="{{url}}"{{/if}}>{{{button_text}}}</a>
+                      {{/if}}
+                </div>
+              </div>
+            {{#unless button_text}}{{#if url}}
+              </a>
+            {{/if}}{{/unless}}
+          </figcaption>
+        </figure>
+      {{/each}}
+    </div>
+
+    {{#if carousel.slides.length ">" 1}}
+      <div class="carousel-navigation">
+        <div data-carousel-nav-item>
+          <span class="carousel-navigation-item carousel-previous" data-carousel-pagination="prev">
+            <i class="icon-arrow-left"></i>
+          </span>
+        </div>
+
+        <div data-carousel-nav-item>
+          <span class="icon carousel-navigation-item carousel-next" data-carousel-pagination="next">
+            <i class="icon-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+    {{/if}}
+  </section>
+</section>

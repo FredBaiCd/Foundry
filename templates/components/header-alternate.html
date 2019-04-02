@@ -1,0 +1,28 @@
+<header class="main-header header-alternate {{theme_settings.logo-position}}" role="banner">
+
+  <section class="header-topbar">
+    <div class="header-topbar-inner">
+      <div class="header-currency-selector">
+        {{> components/currency-selector}}
+      </div>
+
+      {{> components/header-tools}}
+    </div>
+  </section>
+
+  <div class="mobile-header-branding">
+    {{#if settings.store_logo.image}}
+      <a class="header-branding-logo" href="{{urls.home}}">
+        <img class="header-branding-image" src="{{getImage settings.store_logo.image 'logo'}}" alt="{{settings.store_logo.title}}">
+      </a>
+    {{else}}
+      <h1 class="header-branding-text">
+        <a href="{{urls.home}}">{{settings.store_logo.title}}</a>
+      </h1>
+    {{/if}}
+  </div>
+
+  {{{snippet 'header'}}}
+</header>
+
+{{> components/navigation-alternate}}

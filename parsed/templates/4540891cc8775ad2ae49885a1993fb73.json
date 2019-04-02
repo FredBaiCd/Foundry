@@ -1,0 +1,1 @@
+{"components/common/rating":"\n{{#enumerate 1 5}}\n  <i class=\"icon icon-star rating-star {{#compare ../rating this operator='<'}}empty{{/compare}}\"></i>\n{{/enumerate}}\n"}

@@ -1,0 +1,14 @@
+<div class="facet-selected-filters">
+  <ul class="selected-filter-items">
+    {{#each items}}
+      <li>
+        <a href="{{url}}" title="{{title}}" class="selected-filter-item" rel="nofollow" data-faceted-search-facet>
+          {{title}}
+          <span class="remove">&times;</span>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+
+  <a href="{{remove_all_url}}" class="clear-all" rel="nofollow" data-faceted-search-facet>{{lang 'search.faceted.selected.clear_all'}}</a>
+</div>

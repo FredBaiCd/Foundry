@@ -1,0 +1,54 @@
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block">
+    <div class="page-header">
+      <h1 class="page-title centered">{{lang 'cart.title'}}</h1>
+    </div>
+
+    <div class="cart-container" data-cart>
+
+      {{#if cart.status_messages}}
+        <div data-cart-status>
+          {{#each cart.status_messages}}
+            <div class="alert alert-info" role="alert" data-bind="text: message">{{{message}}}</div>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{#if cart.items.length}}
+
+        <div class="cart-page-content" data-cart-content>
+          {{> components/cart/content}}
+
+          {{{snippet 'cart'}}}
+        </div>
+
+        <div class="cart-actions">
+          <div class="cart-promo-codes">
+            {{> components/cart/coupon-input}}
+          </div>
+
+          {{#if gift_certificates_enabled}}
+            <div class="cart-gift-certificates">
+              {{> components/cart/gift-cert-input}}
+            </div>
+          {{/if}}
+        </div>
+
+        <div class="cart-page-footer" data-cart-totals>
+          {{> components/cart/footer}}
+        </div>
+
+      {{else}}
+        <p>{{lang 'cart.checkout.empty_cart'}}</p>
+      {{/if}}
+    </div>
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

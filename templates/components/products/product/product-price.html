@@ -1,0 +1,29 @@
+<div class="product-price">
+  {{#if with_tax}}
+    <div class="price-section price-with-tax">
+      {{#if rrp_with_tax}}
+        <span class="price-retail">{{rrp_with_tax.formatted}}</span>
+      {{/if}}
+      <meta itemprop="price" content="{{with_tax.value}}">
+      <span data-product-price class="price-current">
+        {{lang 'products.price_with_tax' price=with_tax.formatted tax_label=tax_label}}
+        {{#if show_saved}}<span class="price-sale">{{lang "product.sale"}}</span>{{/if}}
+      </span>
+    </div>
+  {{/if}}
+
+  {{#if without_tax}}
+    <div class="price-section price-without-tax">
+      {{#if with_tax}}<small>{{/if}}
+      {{#if rrp_without_tax}}
+        <span class="price-retail">{{rrp_without_tax.formatted}}</span>
+      {{/if}}
+      <meta itemprop="price" content="{{without_tax.value}}">
+      <span data-product-price class="price-current">
+        {{lang 'products.price_without_tax' price=without_tax.formatted tax_label=tax_label}}
+        {{#if show_saved}}<span class="price-sale">{{lang "product.sale"}}</span>{{/if}}
+      </span>
+      {{#if with_tax}}</small>{{/if}}
+    </div>
+  {{/if}}
+</div>

@@ -1,0 +1,30 @@
+---
+blog:
+  recent_posts:
+    limit: 9
+---
+
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block">
+    <div class="blog-container single-post">
+      <div class="blog-list">
+        {{> components/blog/post blog.post
+          sharing_buttons=theme_settings.blog_sharing_buttons
+          sharing_source=settings.add_this.buttons
+          sharing_url=blog.post.url
+          sharing_title=blog.post.title
+        }}
+      </div>
+    </div>
+  </section>
+
+  {{> core/structured-data/blog-post}}
+
+{{/partial}}
+
+{{> layout/base}}

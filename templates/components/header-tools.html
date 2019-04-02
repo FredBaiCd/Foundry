@@ -1,0 +1,58 @@
+<div class="header-tools">
+  <ul class="header-tools-inner">
+
+    <li class="header-tools-item navigation-toggle-mobile-container">
+      <button class="navigation-toggle-mobile-wrapper">
+        <span class="navigation-toggle-mobile"><i class="icon-menu"></i></span>
+      </button>
+    </li>
+
+    <li class="header-tools-item search-toggle">
+      <a href="#">
+        <i class="icon-search"></i>
+        <span class="label">{{lang 'header.search'}}</span>
+      </a>
+
+      <div class="search-form-wrapper">
+        {{{snippet 'forms_search'}}}
+
+        <form class="search-form" action="{{urls.search}}">
+          <input class="search-input" name="search_query" placeholder="{{lang 'header.search'}}">
+          <button class="search-submit" type="submit">
+            <i class="icon-search"></i>
+            <span class="show-for-sr">
+              {{lang 'search.submit'}}
+            </span>
+          </button>
+        </form>
+      </div>
+    </li>
+
+    <li class="header-tools-item cart-toggle {{#if cart.items}}has-cart-items{{/if}}">
+      <a class="cart-preview-trigger" href="#">
+        <i class="icon-cart"></i>
+        <span class="label">{{lang 'header.cart'}}</span>
+      </a>
+      <div class="cart-preview">
+        {{> components/cart/cart-preview}}
+      </div>
+    </li>
+
+    {{#if settings.account_creation_enabled}}
+      <li class="header-tools-item">
+        {{#if customer}}
+          <a href="{{urls.account.index}}">
+            <i class="icon-user"></i>
+            <span class="label">{{customer.name}}</span>
+          </a>
+        {{else}}
+          <a href="{{urls.auth.login}}">
+            <i class="icon-user"></i>
+            <span class="label">{{lang 'header.log_in'}}</span>
+          </a>
+        {{/if}}
+      </li>
+    {{/if}}
+
+  </ul>
+</div>

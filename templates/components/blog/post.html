@@ -1,0 +1,67 @@
+<article class="blog-post">
+
+  <h2 class="blog-post-title">
+    <a href="{{url}}">{{title}}</a>
+  </h2>
+
+  <div class="blog-post-meta">
+    <time class="blog-post-date">{{date_published}}</time>
+
+    {{#if this.author}}
+      <div class="blog-post-author">
+        {{author}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="blog-post-content {{#if summary}}summary{{/if}}">
+    {{#if summary}}
+
+      {{#if this.thumbnail}}
+        <p>
+          <a class="blog-post-thumbnail" href="{{url}}" title="{{thumbnail.alt}}">
+            <img src="{{getImage thumbnail 'product_zoom'}}" alt="{{thumbnail.alt}}">
+          </a>
+        </p>
+      {{/if}}
+
+      <p>{{{summary}}}</p>
+
+    {{else}}
+
+      <div class="rte">
+        {{#if this.thumbnail}}
+          <p>
+            <img src="{{getImage thumbnail 'product_zoom'}}" alt="{{thumbnail.alt}}">
+          </p>
+        {{/if}}
+
+        {{{body}}}
+
+        {{#if this.sharing_buttons}}
+          <div class="blog-post-sharing">
+            {{> components/snippets/sharing-buttons
+              sharing_url=sharing_url
+              sharing_title=sharing_title
+              sharing_source=sharing_source}}
+          </div>
+        {{/if}}
+      </div>
+
+    {{/if}}
+
+    {{#if this.tags}}
+      <div class="blog-post-tags">
+        <span class="blog-post-tags-label">{{lang 'blog.tags'}}</span>
+        <ul class="blog-post-tags-list">
+          {{#each tags}}
+            <li class="blog-post-tag">
+              <a href="{{url}}">#{{name}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+  </div>
+
+</article>

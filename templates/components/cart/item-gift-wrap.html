@@ -1,0 +1,31 @@
+
+{{#if show_gift_wrapping}}
+  <dl class="cart-item-options cart-gift-wrapping">
+    {{#if gift_wrapping}}
+      <dt class="cart-item-option-title">
+        {{lang 'cart.gift_wrapping.title'}}
+      </dt>
+      <dd class="cart-item-option-description">
+        {{gift_wrapping.name}}
+        <span class="cart-item-option-actions">
+          (<a class="item-gift-wrap-toggle" data-item-gift-wrap="{{id}}">{{lang 'cart.gift_wrapping.change'}}</a> or <a href="{{gift_wrapping.remove_url}}">{{lang 'cart.gift_wrapping.remove'}}</a>)
+        </span>
+      </dd>
+      {{#if gift_wrapping.message}}
+        <dt class="cart-item-option-title">
+          {{lang 'cart.gift_wrapping.gift_message'}}
+        </dt>
+        <dd class="cart-item-option-description">
+          {{gift_wrapping.message}}
+        </dd>
+      {{/if}}
+    {{else}}
+      <dt class="cart-item-option-title">
+        {{lang 'cart.gift_wrapping.title'}}
+      </dt>
+      <dd class="cart-item-option-description">
+        <a class="item-gift-wrap-add item-gift-wrap-toggle visible" data-item-gift-wrap="{{id}}">{{lang 'cart.gift_wrapping.add'}}</a>
+      </dd>
+    {{/if}}
+  </dl>
+{{/if}}

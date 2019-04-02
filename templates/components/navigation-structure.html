@@ -1,0 +1,88 @@
+<ul class="navigation-tier nav-menu" data-primary-tier>
+
+
+  <li class="nav-menu-item">
+    {{#if theme_settings.global-show-home-in-nav}}
+      <a href="{{urls.home}}">{{lang 'header.home_nav_item'}}</a>
+    {{/if}}
+  </li>
+
+
+ {{#if theme_settings.global-show-categories-in-nav}}
+   {{#if ../theme_settings.categories-display-type '===' 'categories-main-nav'}}
+     {{#each categories}}
+        {{#if name '==' 'Resources'}}
+           <li class="nav-menu-item">
+             <a href="{{url}}">{{name}}</a>
+           </li>
+        {{else}}
+           <li class="nav-menu-item {{#if children}}has-dropdown{{/if}}" {{#if children}}data-primary-toggle{{/if}}>
+             {{> components/navigation-item}}
+           </li>
+        {{/if}}
+     {{/each}}
+    {{else}}
+      <li class="nav-menu-item has-dropdown" data-primary-toggle>
+        <a href="{{url}}">{{lang 'header.shop_nav_item'}}</a>
+
+        <ul class="navigation-tier nav-submenu" data-flyout-tier>
+          {{#each categories}}
+            <li class="nav-submenu-item {{#if children}}has-dropdown{{/if}}">
+              <a {{#if children}}href="#" class="nav-submenu-toggle" data-flyout-toggle{{else}}href="{{url}}"{{/if}}>{{name}}</a>
+
+              {{#if children}}
+                <i class="icon-plus nav-icon" data-flyout-toggle></i>
+
+                <ul class="navigation-tier nav-submenu">
+                  <li class="nav-submenu-item">
+                    <a href="{{url}}">{{lang 'header.categories_all_item'}} {{name}}</a>
+                  </li>
+                  {{#each children}}
+                    <li class="nav-submenu-item {{#if children}}has-dropdown{{/if}}">
+                      <a {{#if children}}href="#" class="nav-submenu-toggle" data-flyout-toggle{{else}}href="{{url}}"{{/if}}>{{name}}</a>
+
+                      {{#if children}}
+                        <i class="icon-plus nav-icon" data-flyout-toggle></i>
+
+                        <ul class="navigation-tier nav-submenu">
+                          <li class="nav-submenu-item">
+                            <a href="{{url}}">{{lang 'header.categories_all_item'}} {{name}}</a>
+                          </li>
+                          {{#each children}}
+                            <li class="nav-submenu-item">
+                              <a href="{{url}}">{{name}}</a>
+                            </li>
+                          {{/each}}
+                        </ul>
+                      {{/if}}
+                    </li>
+                  {{/each}}
+                </ul>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      </li>
+   {{/if}}
+ {{/if}}
+
+ {{#if theme_settings.global-show-pages-in-nav}}
+   {{#each pages}}
+     <li class="nav-menu-item {{#if children}}has-dropdown{{/if}}" {{#if children}}data-primary-toggle{{/if}}>
+       {{> components/navigation-item}}
+     </li>
+   {{/each}}
+ {{/if}}
+
+  {{#if settings.account_creation_enabled}}
+    <li class="nav-menu-item mobile-list-item">
+      {{#if customer}}
+        <a href="{{urls.account.index}}">{{lang 'header.logged_in_as' name=customer.name}}</a>
+        <a href="{{urls.auth.logout}}">{{lang 'header.log_out' }}</a>
+      {{else}}
+        <a href="{{urls.auth.login}}">{{lang 'header.log_in'}}</a>
+      {{/if}}
+    </li>
+  {{/if}}
+
+</ul>

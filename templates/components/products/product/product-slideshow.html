@@ -1,0 +1,106 @@
+<div class="product-slideshow {{#if product.images.length '>' 1}}visible-controls{{/if}}">
+  <div class="product-slideshow-images" data-slideshow-position="0" data-product-images>
+    {{#if product.images}}
+      {{#each product.images}}
+        <img class="product-slideshow-image" data-image-position="{{@index}}" src="{{getImage this 'product_zoom'}}" alt="{{this.alt}}" data-product-images-main>
+      {{/each}}
+    {{else}}
+      <img class="product-slideshow-image" data-image-position="{{@index}}" src="{{cdn '/assets/icons/icon-no-image.svg'}}" alt="{{lang 'product.no_image'}}" class="no-image" data-product-images-main>
+    {{/if}}
+
+    {{#if product.price.saved}}
+      <span class="product-single-sale-badge">{{lang 'product.on_sale'}}</span>
+    {{/if}}
+
+    {{> components/common/spinner}}
+  </div>
+
+  {{#if product.images.length ">" 1}}
+    <div class="product-thumbnails">
+      {{#each product.images}}
+        <span
+          class="product-thumbnail {{#if @first}}active{{/if}}"
+          style="background-image: url({{getImage this 'product_thumbnail'}});"
+          data-image-position="{{@index}}"
+          data-high-res="{{getImage this 'product_zoom'}}"
+          data-product-thumbnail>
+          <img class="show-for-sr" src="{{getImage this 'product_thumbnail'}}" alt="{{this.alt}}">
+        </span>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+
+  {{#unless quickshop}}
+    <div class="single-product-tabs">
+      <ul class="tabs-navigation" data-tabs>
+        {{#if product.description}}
+          <li class="tab-title"><a href="#product-details">{{lang 'products.tabs.details'}}</a></li>
+        {{/if}}
+
+        {{#if settings.show_product_reviews}}
+          <li class="tab-title"><a href="#product-reviews">{{lang 'products.tabs.reviews'}}</a></li>
+        {{/if}}
+
+        {{#if product.videos.list.length}}
+          <li class="tab-title"><a href="#product-videos">{{lang 'products.tabs.videos'}}</a></li>
+        {{/if}}
+      </ul>
+
+      <div class="tabs-content">
+        {{#if product.description}}
+          <div class="tabs-content-panel" id="product-details">
+            <div class="product-description rte">
+              {{{product.description}}}
+
+              {{{snippet 'product_description'}}}
+            </div>
+          </div>
+        {{/if}}
+
+        {{#if settings.show_product_reviews}}
+          <div class="tabs-content-panel" id="product-reviews">
+            {{#if product.reviews.list.length}}
+              <div class="reviews-header">
+                <div class="reviews-header-summary">
+                  {{#if settings.show_product_rating}}
+                    {{> components/products/ratings rating=product.rating size="large"}}
+                  {{/if}}
+                  <div class="reviews-rating-summary">
+                    {{{lang 'product.reviews.total_based_on' score=product.rating numReviews=product.num_reviews}}}
+                    <a href="#modal-review-form" class="review-link">{{ lang 'product.reviews.leave_review' }}.</a>
+                  </div>
+                </div>
+              </div>
+              {{#each product.reviews.list}}
+                {{> components/products/review-item}}
+              {{/each}}
+              <a href="#modal-review-form" class="button button-alt review-link">{{ lang 'product.reviews.leave_review' }}</a>
+
+              {{{snippet 'reviews'}}}
+            {{else}}
+              <p>{{lang 'product.reviews.no_reviews'}}</p>
+              <a href="#modal-review-form" class="button button-alt review-link">{{ lang 'product.reviews.leave_review' }}</a>
+            {{/if}}
+          </div>
+        {{/if}}
+
+        {{#if product.videos.list.length}}
+          <div class="tabs-content-panel" id="product-videos">
+            {{#each product.videos.list}}
+              <div class="product-video-container">
+                <iframe src="https://www.youtube.com/embed/{{id}}?rel=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
+              </div>
+            {{/each}}
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  {{/unless}}
+<!--
+  {{#each breadcrumbs}}
+      {{#if name '==' 'Driveway Gate'}}
+        trea
+      {{/if}}
+  {{/each}}
+-->

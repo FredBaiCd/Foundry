@@ -1,0 +1,14 @@
+<div class="product-review">
+
+  <h4 class="product-review-title">{{title}}</h4>
+  <p class="product-review-date">{{date}}</p>
+
+  {{#if settings.show_product_rating}}
+    <div class="product-review-rating">
+      {{> components/common/rating rating=rating}}
+    </div>
+  {{/if}}
+
+  <p class="review-comment">{{text}}</p>
+
+</div>

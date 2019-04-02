@@ -1,0 +1,10 @@
+{{#if category.faceted_search_enabled}}
+
+  <a href="#" class="button button-alt faceted-sidebar-toggle">{{lang 'search.faceted.toggle_filters'}}</a>
+
+  {{#if category.selected.items.length}}
+    {{> components/faceted-search/facet-selected category.selected}}
+  {{/if }}
+
+  {{> components/faceted-search/facet-inputs facets=category.facets}}
+{{/if }}

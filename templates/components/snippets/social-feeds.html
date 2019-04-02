@@ -1,0 +1,31 @@
+<section class="layout-block has-description {{#if theme_settings.homepage_show_newsletter}}no-border{{/if}}">
+
+  <h2 class="section-title">{{lang 'blog.section_title'}}</h2>
+  <div class="section-description">
+    <p>{{lang 'blog.description'}}</p>
+  </div>
+
+  <div class="social-feeds">
+    <div class="social-feeds-wrap">
+      <div class="social-feeds-row">
+
+        <div class="social-feed">
+          <h3 class="social-heading"><i class="icon-rss"></i> {{lang 'home.latest_blog'}}</h3>
+          <ul class="social-blog-posts">
+            {{#each blog.recent_posts}}
+              <li class="recent-blog-post">
+                <p>
+                  <a href="{{url}}">{{title}}</a>
+                  <span class="recent-blog-post-date">{{date_published}}</span>
+                </p>
+              </li>
+            {{/each}}
+          </ul>
+          <p class="social-byline">{{{lang 'social-widgets.blog_byline' link='/blog'}}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>

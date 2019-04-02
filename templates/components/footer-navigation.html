@@ -1,0 +1,27 @@
+{{!
+  @param nav_items
+         > accepts "pages", "categories" or "shop_by_brand", passed from parent template
+}}
+
+<div class="footer-navigation">
+  <h3 class="footer-section-title">{{lang 'footer.headings.navigation'}}</h3>
+  <ul>
+    {{#each nav_items}}
+      <li class="footer-navigation-list-item">
+        <a href="{{url}}">{{name}}</a>
+      </li>
+    {{/each}}
+    {{#if view_all}}
+      {{#if shop_by_brand.length '>' 5}}
+        <li class="footer-navigation-list-item">
+          <a href="{{urls.brands}}">{{lang 'footer.view_all'}}</a>
+        </li>
+      {{/if}}
+    {{/if}}
+    {{#if theme_settings.sitemap}}
+      <li class="footer-navigation-list-item">
+        <a href="{{urls.sitemap}}">{{lang 'sitemap.heading'}}</a>
+      </li>
+    {{/if}}
+  </ul>
+</div>

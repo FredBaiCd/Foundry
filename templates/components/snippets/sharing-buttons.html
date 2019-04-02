@@ -1,0 +1,57 @@
+<section class="sharing-buttons">
+
+  {{#each sharing_source}}
+
+    {{#if service '===' 'facebook'}}
+      <a class="sharing-button" href="http://www.facebook.com/sharer.php?u={{../../sharing_url}}" onclick="window.open('http://www.facebook.com/sharer.php?u={{../../sharing_url}}', 'newwindow', 'width=600, height=450'); return false;">
+        <i class="icon-facebook"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'twitter'}}
+      <a class="sharing-button" href="https://twitter.com/share?url={{../../sharing_url}}&text={{../../sharing_title}}" onclick="window.open('https://twitter.com/share?url={{../../sharing_url}}&text={{../../sharing_title}}', 'newwindow', 'width=600, height=450'); return false;">
+        <i class="icon-twitter"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'google_plusone'}}
+      <a class="sharing-button" href="https://plus.google.com/share?url={{../../sharing_url}}" onclick="window.open('https://plus.google.com/share?url={{../../sharing_url}}', 'newwindow', 'width=600, height=450'); return false;">
+        <i class="icon-google"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'pinterest'}}
+      <a class="sharing-button" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+        <i class="icon-pinterest"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'tumblr'}}
+      <a class="sharing-button" href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{../../sharing_url}}&title={{../../sharing_title}}" onclick="window.open('https://www.tumblr.com/widgets/share/tool?canonicalUrl={{../../sharing_url}}&title={{../../sharing_title}}', 'newwindow', 'width=600, height=450'); return false;">
+        <i class="icon-tumblr"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'email'}}
+      <a class="sharing-button" href="mailto:?Subject={{../../sharing_title}}&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 {{../../sharing_url}}">
+        <i class="icon-mail"></i>
+      </a>
+    {{/if}}
+
+  {{/each}}
+
+  {{#each sharing_source}}
+
+    {{#if service '===' 'facebook_like'}}
+      <a class="sharing-button facebook-like">
+        <div class="fb-like"
+          data-href="{{../../sharing_url}}"
+          data-layout="button_count"
+          data-action="like"
+          data-show-faces="false">
+        </div>
+      </a>
+    {{/if}}
+
+  {{/each}}
+</section>

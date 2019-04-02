@@ -1,0 +1,469 @@
+@font-face {
+    font-family: "fontawesome";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/fontawesome/fa-regular-400.eot');
+    src: url('../fonts/fontawesome/fa-regular-400.eot?#iefix') format("embedded-opentype"), 
+    url('../fonts/fontawesome/fa-regular-400.woff2') format("woff2"), 
+    url('../fonts/fontawesome/fa-regular-400.woff') format("woff"), 
+    url('../fonts/fontawesome/fa-regular-400.ttf') format("truetype"), 
+    url('../fonts/fontawesome/fa-regular-400.svg#fontawesome') format("svg")
+}
+@font-face {
+    font-family: "fontawesome";
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/fontawesome/fa-solid-900.eot');
+    src: url('../fonts/fontawesome/fa-solid-900.eot?#iefix') format("embedded-opentype"), 
+    url('../fonts/fontawesome/fa-solid-900.woff2') format("woff2"), 
+    url('../fonts/fontawesome/fa-solid-900.woff') format("woff"), 
+    url('../fonts/fontawesome/fa-solid-900.ttf') format("truetype"), 
+    url('../fonts/fontawesome/fa-solid-900.svg#fontawesome') format("svg")
+}
+
+.fa {
+    font-family: "fontawesome";
+    font-style: normal;
+    font-size: inherit;
+    font-weight: 900
+}
+
+.fa-delete:before {
+    content: "\f2ed";
+}
+.fa-edit:before {
+    content: "\f303";
+}
+.fa-search:before {
+    content: "\f002";
+}
+.fa-sync-alt:before {
+    content: "\f2f1";
+}
+.fa-chevron-up:before {
+    content: "\f077";
+}
+.fa-chevron-down:before {
+    content: "\f078";
+}
+.fa-exclamation-triangle:before {
+    content: "\f071";
+}
+
+
+
+// SweetAlert2
+// -----------------------------------------------------------------------------
+
+
+//
+// Purpose: Settings for the vendor popup box replacement, SweetAlert2
+//
+// -----------------------------------------------------------------------------
+
+// Font color, size, family
+$alert-font-body:                                      stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+$alert-font-bodySize:                                  remCalc(stencilNumber("fontSize-root", "px") + 2px);
+$alert-font-bodyColor:                                 stencilColor("color-textBase");
+$alert-font-headingsSize:                              remCalc(stencilNumber("fontSize-h1", "px") + 2px);
+$alert-font-headingsColor:                             stencilColor("color-textHeading");
+
+// Modal stylings
+$alert-modal-bgColor:                                  #ffffff !important;
+$alert-modal-borderRadius:                             4px;
+
+// Input stylings
+$alert-input-color:                                    stencilColor("input-font-color");
+$alert-input-borderColor:                              stencilColor("input-border-color");
+$alert-input-borderColorActive:                        stencilColor("input-border-color-active");
+
+// Button wrapper
+$alert-button-wrapperMargin:                           25px 0 0;
+
+// Confirm button
+$alert-button-bgColor:                                 stencilColor("button--primary-backgroundColor");
+$alert-button-bgColorHover:                            stencilColor("button--primary-backgroundColorHover");
+$alert-button-bgColorActive:                           stencilColor("button--primary-backgroundColorActive");
+
+$alert-button-borderColor:                             $alert-button-bgColor;
+$alert-button-borderColorHover:                        $alert-button-bgColorHover;
+$alert-button-borderColorActive:                       $alert-button-bgColorActive;
+
+$alert-button-color:                                   stencilColor("button--primary-color");
+$alert-button-colorHover:                              stencilColor("button--primary-colorHover");
+$alert-button-colorActive:                             stencilColor("button--primary-colorActive");
+
+// Cancel button
+$alert-button-cancel-bgColor:                          transparent;
+$alert-button-cancel-bgColorHover:                     transparent;
+$alert-button-cancel-bgColorActive:                    transparent;
+
+$alert-button-cancel-borderColor:                      stencilColor("button--default-borderColor");
+$alert-button-cancel-borderColorHover:                 stencilColor("button--default-borderColorHover");
+$alert-button-cancel-borderColorActive:                stencilColor("button--default-borderColorActive");
+
+$alert-button-cancel-color:                            stencilColor("button--default-color");
+$alert-button-cancel-colorHover:                       stencilColor("button--default-colorHover");
+$alert-button-cancel-colorActive:                      stencilColor("button--default-colorActive");
+
+$button-radius: 2px;
+
+// SWEETALERT2
+// -----------------------------------------------------------------------------
+//
+// Purpose: Styles for the vendor popup box replacement, SweetAlert2
+//
+// -----------------------------------------------------------------------------
+//
+// Purpose: Override the plugin to give some Stencil styling
+//
+// -----------------------------------------------------------------------------
+.swal2-container, body.swal2-iosfix {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.swal2-container {
+    z-index: 999;
+
+    &.swal2-shown {
+        background-color: rgba(0,0,0,.4);
+    }
+    
+    &.swal2-center {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+}
+
+.swal2-modal {
+    
+    .swal2-styled {
+        //@include button-base;
+        //@include buttonVariant("default");
+        //@include buttonSize("default");
+        border-radius: $button-radius;
+        line-height: 1rem;
+        outline: none;
+        transition: all 0.15s ease;
+        //vertical-align: $button-vAlign;
+    }
+
+    .swal2-styled:focus {
+        //box-shadow: $button-focus-boxShadow;
+        outline: none;
+    }
+
+    .swal2-confirm,
+    .swal2-confirm.styled {
+        padding: 13px 20px!important;
+        font-family: "Lato";
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 13px;
+        letter-spacing: 0.1em;
+        color: white!important;
+        text-transform: uppercase;
+        background-color: #bb823f!important;
+        border: 1px solid #bb823f!important;
+        border-radius: 3px;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    }
+
+    .swal2-confirm:focus,
+    .swal2-confirm:hover {
+        background-color: #bb823f;
+        border-color: #bb823f;
+        color: #fff;
+    }
+
+    .swal2-confirm:active {
+        background-color: #bb823f;
+        border-color: #bb823f;
+        color: #fff;
+    }
+
+    .swal2-cancel,
+    .swal2-cancel.styled {
+        padding: 13px 20px;
+        font-family: "Lato";
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 13px;
+        letter-spacing: 0.1em;
+        color: white;
+        text-transform: uppercase;
+        background-color: #fff!important;
+        border-color: #bb823f!important;
+        color: #bb823f!important;
+        border: 1px solid #bb823f!important;
+
+        
+        //margin-left: $button-adjacentButton-marginLeft;
+        
+    }
+
+    .swal2-cancel:focus,
+    .swal2-cancel:hover {
+        background-color: #fff;
+        border-color: #bb823f;
+        color: #bb823f;
+    }
+
+    .swal2-cancel:active {
+        background-color: #fff;
+        border-color: #bb823f;
+        color: #bb823f;
+    }
+
+    .swal2-spacer {
+        background-color: #fff!important;
+    }
+
+    .button {
+        padding: 13px 20px!important;
+        font-family: "Lato";
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 13px;
+        letter-spacing: 0.1em;
+        color: white!important;
+        text-transform: uppercase;
+        background-color: #bb823f!important;
+        border: 1px solid #bb823f!important;
+        border-radius: 3px;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        margin: 0 5px;
+    }
+    .button--secondary {
+        padding: 13px 20px;
+        font-family: "Lato";
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 13px;
+        letter-spacing: 0.1em;
+        color: white;
+        text-transform: uppercase;
+        background-color: #fff!important;
+        border-color: #bb823f!important;
+        color: #bb823f!important;
+        border: 1px solid #bb823f!important;
+    }
+}
+
+
+// =============================================================================
+// MODAL (Settings)
+// =============================================================================
+
+
+// BigCommerce Variables
+// -----------------------------------------------------------------------------
+//
+// These scoped variables are created by BigCommerce.
+// All variables that are not from Foundation should be placed here.
+//
+// 1. Choose whether to include the BigCommerce class names
+//
+// -----------------------------------------------------------------------------
+
+$exportCSS--modal:                 true; // 1
+
+// Color Variables
+$modal-backdrop-color:             color("greys", "darkest");
+
+// Border Variables
+$modal-border:                     container("border");
+
+// Size Variables
+$modal-width--small:               500px;
+$modal-width--large:               1280px;
+
+
+// Positioning Variables
+$modal-footer-align:               right;
+$modal-max-height:                 80%;
+$modal-transformY:                 -50%;
+
+
+// Spacing
+$modal-horizontalSpacing:          1.5rem;
+$modal-verticalSpacing:            1.5rem;
+
+
+// Modal header variables
+$modal-header-horizontalSpacing:   0;
+$modal-header-verticalSpacing:     1rem;
+
+$modal-header-title-margin:        0;
+
+$modal-close-size:                 20px;
+$modal-close-transformY:           none;
+
+// Modal body variables
+$modal-body-horizontalSpacing:     0;
+$modal-body-verticalSpacing:       3rem;
+
+
+// Modal footer variables
+$modal-footer-horizontalSpacing:   $modal-horizontalSpacing;
+$modal-footer-verticalSpacing:     0.75rem;
+
+$modal-footer-button-marginBottom: 0;
+
+$modal-footer-link-fontSize:       fontSize("smaller");
+$modal-footer-link-margin:         1.5rem;
+
+
+// Foundation Variables
+// -----------------------------------------------------------------------------
+//
+// These variables come directly from:
+// /vendor/foundation/foundation/components/*
+// Declaring the variables here, you can adjust them all to your design,
+// leaving the vendor framework untouched.
+//
+// -----------------------------------------------------------------------------
+$include-html-classes: false !default;
+
+$include-html-reveal-classes:      $include-html-classes;
+
+// We use these to control the style of the reveal overlay.
+$reveal-overlay-bg:                overlay("fill");
+$reveal-overlay-bg-old:            $modal-backdrop-color;
+
+// We use these to control the style of the modal itself.
+$reveal-modal-bg:                  #fff;
+$reveal-position-top:              50% !important;
+$reveal-default-width:             900px;
+$reveal-max-width:                 80%;
+$reveal-modal-paddingHorizontal:   2.25rem;
+$reveal-modal-paddingVertical:     2.25rem;
+$reveal-modal-padding:             $reveal-modal-paddingVertical $reveal-modal-paddingHorizontal;
+$reveal-box-shadow:                none;
+
+// We use these to style the reveal close button
+$reveal-close-font-size:           fontSize("larger");
+$reveal-close-top:                 $modal-verticalSpacing * 0.7;
+$reveal-close-side:                $modal-horizontalSpacing * 0.5;
+$reveal-close-color:               color("greys", "dark");
+$reveal-close-weight:              normal;
+$reveal-close-height:              32px;
+
+// We use this to set the default radius used throughout the core.
+$reveal-radius:                    0;
+$reveal-round:                     0;
+
+// We use these to control the modal border
+$reveal-border-style:              solid;
+$reveal-border-width:              0;
+$reveal-border-color:              container("borderColor");
+
+$reveal-modal-class:               "modal";
+$close-reveal-modal-class:         "modal-close";
+
+// =============================================================================
+// MODAL (CSS)
+// =============================================================================
+
+.bc-modal {
+    display: none;
+}
+.modal {
+    max-width: 95%;
+    overflow-y: auto;
+}
+
+/* .modal {
+    // scss-lint:disable ImportantRule
+    position: fixed;
+    display: none;
+    left: 50%;
+    margin: 0 auto;
+    max-height: 90%;
+    max-width: 95%;
+    min-height: 240px;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    right: 0;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+} */
+
+.modal--small {
+    width: 500px;
+}
+
+.modal--normal {
+    width: 900px;
+}
+
+.modal-header {
+    margin-top: 0;
+}
+
+.modal-header-title {
+    font-size: fontSize("large");
+    text-align: center;
+    text-align: left;
+    font-weight: 300;
+    margin-top: 0;
+
+    @media screen and (min-width: 1025px) {
+        font-size: fontSize("larger");
+    }
+}
+
+.modal-close {
+    height: 32px;
+    width: 32px;
+    color: stencilColor("icon-color");
+    font-size: 26px;
+    line-height: remCalc($reveal-close-height);
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    z-index: zIndex("high");
+
+    @media screen and (min-width: 1025px) {
+        font-size: 32px;
+    }
+
+    &:hover {
+        color: stencilColor("icon-color-hover");
+    }
+
+    &.modal-close--button {
+        position: static;
+        width: auto;
+        height: auto;
+        font-size: 14px;
+        //padding: $buttonSize-default-verticalPadding $buttonSize-default-horizontalPadding;
+        padding: 0.75rem 0.75rem;
+    }
+}
+
+
+
+/* .modal-body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: $reveal-modal-padding;
+} */
+
+.button[disabled] {
+    cursor: not-allowed;
+    background-color: #dedede;
+    pointer-events: none;
+    background-color: #ccc;
+    border-color: rgba(0,0,255,0);
+    color: #fff;
+}
+
+.b2b-wrap {
+    margin-bottom: 3rem;
+}

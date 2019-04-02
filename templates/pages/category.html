@@ -1,0 +1,92 @@
+---
+category:
+  products:
+    limit: {{theme_settings.product_results_per_page}}
+---
+
+<!-- for bundleb2b -->
+{{inject "categoryProductsPerPage" theme_settings.product_results_per_page}}
+{{inject "categoryId" category.id}}
+
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block product-grid-header{{#if category.faceted_search_enabled}}has-sidebar{{/if}}">
+    <div class="category-details">
+      <div class="category-details-wrap {{#if category.image}}has-image{{/if}}">
+        <div class="category-details-row">
+
+          {{#if category.image}}
+            <div class="category-image">
+              <img src="{{getImage category.image 'product_item'}}">
+            </div>
+          {{/if}}
+
+          <div class="category-info {{#if category.description.length}}has-description{{/if}}">
+            <h1 class="category-title">{{category.name}}</h1>
+            {{#if category.description.length}}
+              <div class="category-description">{{{category.description}}}</div>
+            {{/if}}
+          </div>
+
+          {{{snippet 'categories'}}}
+           <!-- start custom subcategory grid -->
+<style>
+    .subcatsCustom {display:block;width:100%;margin-top:15px;}
+    .subcatsCustom li {display:inline-block;float:left;width:24%;padding:15px;}
+ div.listing-description > h2 > span > a {text-decoration:underline;}
+ .subcatsCustom li a {
+    text-align: center;
+    display: inline-block;
+    text-decoration: underline;
+}
+</style>
+<div class="subcatsCustom">
+    <ul class="subcats">
+       {{#each category.subcategories}}
+       <li><a href="{{this.url}}"><img src="{{getImage this.image 'thumbnail'}}" alt="{{this.alt}}" />{{this.name}}</a></li>
+       {{/each}}
+    </ul>
+</div>
+<!-- end custom subcategory grid -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layout-block product-grid">
+    <div class="product-grid-container {{#if category.faceted_search_enabled}}has-sidebar{{/if}}">
+
+      {{#if category.products.length}}
+        {{#unless category.faceted_search_enabled}}
+          <div class="product-grid-sorting">
+            {{> components/sorting sort=pagination.category.sort}}
+          </div>
+        {{/unless}}
+
+        {{#if category.facets.length}}
+          {{#if category.faceted_search_enabled}}
+            <div class="product-grid-sidebar">
+              {{> components/sorting sort=pagination.category.sort}}
+
+              <div class="product-grid-filters">
+                {{> components/category/filters}}
+              </div>
+            </div>
+          {{/if}}
+        {{/if}}
+      {{/if}}
+
+      <div class="product-grid-list" data-quickshop>
+        {{> components/category/product-index}}
+      </div>
+
+    </div>
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

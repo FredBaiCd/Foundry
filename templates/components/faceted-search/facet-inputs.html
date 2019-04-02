@@ -1,0 +1,19 @@
+<div class="faceted-search">
+  {{#each facets}}
+    {{#if visible}}
+      {{#if items.length}}
+        <div class="faceted-search-filter filter-type-{{type}}">
+          <h5 class="faceted-search-title">{{ title }}</h5>
+          {{{dynamicComponent 'components/faceted-search/facets'}}}
+        </div>
+      {{/if}}
+
+      {{#compare facet 'price'}}
+        <div class="faceted-search-filter filter-type-{{type}}">
+          <h5 class="faceted-search-title">{{ title }}</h5>
+          {{{dynamicComponent 'components/faceted-search/facets'}}}
+        </div>
+      {{/compare}}
+    {{/if}}
+  {{/each}}
+</div>

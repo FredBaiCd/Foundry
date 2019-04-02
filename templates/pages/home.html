@@ -1,0 +1,70 @@
+---
+carousel: true
+products:
+  featured:
+    limit: {{theme_settings.homepage_products_featured}}
+  top_sellers:
+    limit: {{theme_settings.homepage_products_popular}}
+  new:
+    limit: {{theme_settings.homepage_products_new}}
+blog:
+  recent_posts:
+    limit: 3
+---
+
+{{#partial "page"}}
+
+  {{#if carousel.slides.length}}
+    {{#if carousel}}
+      {{> modules/carousel}}
+    {{/if}}
+  {{/if}}
+
+  {{{snippet 'home_content'}}}
+
+  
+  {{#if theme_settings.homepage_products_featured}}
+  <div home-catalog-product>
+    {{> components/products/featured
+      products=products.featured
+      quickshop=theme_settings.show_quick_shop
+      rowcount=theme_settings.featured_products_per_row
+      crop=theme_settings.grid_aspect_ratio}}
+  </div>
+  {{/if}}
+
+  {{#if theme_settings.homepage_products_popular}}
+  <div home-catalog-product>
+    {{> components/products/popular
+      products=products.top_sellers
+      quickshop=theme_settings.show_quick_shop
+      rowcount=theme_settings.popular_products_per_row
+      crop=theme_settings.grid_aspect_ratio}}
+  </div>
+  {{/if}}
+
+  {{#if theme_settings.homepage_products_new}}
+  <div home-catalog-product>
+    {{> components/products/new
+      products=products.new
+      quickshop=theme_settings.show_quick_shop
+      rowcount=theme_settings.new_products_per_row
+      crop=theme_settings.grid_aspect_ratio}}
+  </div>
+  {{/if}}
+
+  {{#if theme_settings.homepage_show_widgets}}
+    {{> components/snippets/social-feeds}}
+  {{/if}}
+
+  {{#if theme_settings.homepage_show_newsletter}}
+    {{> components/snippets/newsletter-signup}}
+  {{/if}}
+<div style="padding-left:20%; padding-right:20%;"><p>Pacific Gate Works specializes in providing the highest quality custom wood entry gates for your home. All of our custom wooden driveway gates are constructed from clear grade, kiln dried Western Red Cedar, chosen for its dimensional stability and natural beauty. This grade of cedar is one of the highest quality outdoor woods, as it is weather and rot resistant. </p> 
+<p>Make a unique and lasting statement for your home. Whether you’re looking for a single swing gate, a double swing walk through gate, or a custom wooden driveway gate, we pride ourselves in hand-selecting each board and specially designing the perfect wood entry gate for your home.  </p>
+<p>If you’re interested in a custom wood gate design, contact us at <a href="tel:1-855-854-4283">855-854-4283</a> or fill out our form for a <a href="http://pacificgateworks.com/contact/custom-quote-inquiry/">custom quote inquiry</a>. We look forward to hearing from you! </p>
+<p><strong></b>Are you a landscaper, designer, contractor, architect, etc.? View our recent projects <a href="http://pacificgateworks.com/pros/">here</a></p><strong/></div>
+
+{{/partial}}
+
+{{> layout/base}}

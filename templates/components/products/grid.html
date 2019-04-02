@@ -1,0 +1,29 @@
+<form action="/compare" class="product-grid-list-items {{#if show_compare}}compare-enabled{{/if}} {{#if quickshop}}quickshop-enabled{{/if}} {{rowcount}}" method="POST" data-product-compare>
+  {{#unless products.length}}
+    <div class="page-container">
+      <div class="product-grid-no-results">
+        {{> core/alerts/alert-info (lang 'products.no_products')}}
+      </div>
+    </div>
+  {{/unless}}
+ <div b2b-products-gallery>
+  {{#each products}}
+    {{> components/products/product-item
+      show_compare=../show_compare
+      crop=../crop
+      as_low_as=../theme_settings.price_as_low_as
+    }}
+  {{/each}}
+  </div>
+
+  {{#if show_compare}}
+    <div class="compare-tab" id="compare-tab">
+      <h5 class="item-limit">{{lang 'compare.compare_up_to_x_items' num=4}}</h5>
+      <ul class="compare-items-list" id="compare-items-wrapper"></ul>
+      <div class="compare-tab-actions">
+        <input type="submit" value="{{lang 'compare.compare_submit'}}" class="button compare-submit">
+        <a href="#" class="button button-alt clear-compare">{{lang 'compare.clear_compare' num=4}}</a>
+      </div>
+    </div>
+  {{/if}}
+</form>

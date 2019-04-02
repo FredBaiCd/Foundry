@@ -1,0 +1,1 @@
+{"components/common/forms/multiline":"\n<div class=\"form-field\">\n  <label class=\"form-label\" for=\"{{id}}\">{{label}}</label>\n  <textarea name=\"{{name}}\" id=\"{{id}}\" rows=\"{{rows}}\" aria-required=\"{{required}}\" class=\"form-input {{class}}\" {{#if style}}style=\"{{style}}\" {{/if}}>{{value}}</textarea>\n</div>\n"}

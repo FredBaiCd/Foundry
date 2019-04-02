@@ -1,0 +1,23 @@
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block">
+
+    <div class="page-header">
+      <h1 class="page-title centered">{{lang 'unavailable.hibernation_title'}}</h1>
+    </div>
+
+    <div class="page-container">
+      <div class="page-content">
+        {{> components/alerts/alert-error (lang 'unavailable.hibernation_message')}}
+      </div>
+    </div>
+
+  </section>
+
+{{/partial}}
+
+{{> core/unavailable/layout}}

@@ -1,0 +1,14 @@
+<ul class="nav-list faceted-search-option-columns" data-facet-filter-wrapper>
+  {{#each facets}}
+    {{#if facet '===' ../all_facets}}
+      {{#each items}}
+        <li class="nav-list-item" data-facet-item>
+          <a href="{{url}}"
+             class="nav-ist-action {{#if selected}} is-active {{/if}}"
+             rel="nofollow"
+             data-id="{{ id }}"
+             data-faceted-search-facet>{{title}} ({{count}})</a></li>
+      {{/each}}
+    {{/if}}
+  {{/each}}
+</ul>

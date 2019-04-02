@@ -1,0 +1,14 @@
+<article class="review-item">
+  <header class="review-item-header">
+    <h5 class="review-item-title">{{title}}</h5>
+    <div class="review-meta">
+      {{lang 'product.reviews.written_by_on' name=name date=date}}
+    </div>
+  </header>
+  {{#if settings.show_product_rating}}
+    <div class="review-item-stars">
+      {{> components/products/ratings rating=rating size="small"}}
+    </div>
+  {{/if}}
+  <p class="review-item-body">{{text}}</p>
+</article>

@@ -1,0 +1,36 @@
+{{inject 'searchProductsPerPage' theme_settings.searchpage_products_per_page}}
+
+{{#partial "page"}}
+{{!> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{{snippet 'search'}}}
+<section class="layout-block product-grid">
+    <!-- <div class="page-header">
+      <h1 class="page-title centered">{{page.title}}</h1>
+    </div> -->
+    <div class="product-grid-container">
+    <div class="page b2b-search-page">
+        <!-- search results title -->
+        <div class="b2b-search-title"><span id="b2b_search_result_count"></span></div>
+
+        <!-- filter here -->
+        <aside class="page-sidebar-b2b" id="faceted-search-container-b2b">
+            <div class="page-sidebar-inner" id="product-filters-container">
+                
+
+            </div>
+        </aside>
+
+        <!-- products listing -->
+        <section class="page-content">
+            <div id="b2b_search_result">
+                <div class="product-grid-list">
+                    
+                </div>
+                <ul class="pagination-list--b2b" id="jqPagination"></ul>
+            </div>
+        </scetion>
+    </div>
+    </div>
+</section>
+{{/partial}}
+{{> layout/base}}

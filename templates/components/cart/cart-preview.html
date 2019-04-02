@@ -1,0 +1,65 @@
+{{#if cart.items}}<span class="cart-count">{{cart.quantity}}</span>{{/if}}
+
+<div class="cart-preview-wrap">
+
+  {{#if cart.items}}
+    <div class="cart-preview-body">
+      <ul class="cart-preview-list">
+        {{#each cart.items}}
+          <li class="cart-preview-list-item">
+
+            <div class="cart-preview-list-item-image-wrap">
+              <div class="cart-preview-list-item-image">
+                {{#if type '===' 'GiftCertificate'}}
+                  <a href="javascript:void(0)">
+                    <img src="{{cdn '/assets/icons/giftcard-image.svg'}}" alt="{{recipient}}">
+                  </a>
+                {{else}}
+                  <a href="{{link}}">
+                    {{#if image}}
+                      <img src="{{getImage image 'product_thumbnail'}}" alt="{{name}}" />
+                    {{else}}
+                      <img src="{{cdn '/assets/icons/icon-no-image.svg'}}" alt="{{lang 'product.no_image'}}">
+                    {{/if}}
+                  </a>
+                {{/if}}
+              </div>
+            </div>
+
+            <div class="cart-preview-list-item-details">
+              <div class="cart-preview-list-item-name">
+                <a href="{{link}}" alt="{{name}}">{{name}}</a>
+              </div>
+
+              <div class="cart-preview-list-item-price">
+                <span class="{{#if price_discounted}}cart-item-discount{{/if}}">
+                  {{{price.formatted}}} <span class="cart-preview-list-item-price-quantity">&times;{{quantity}}</span>
+                </span>
+
+                {{#if price_discounted}}
+                  <span>
+                    {{price_discounted.formatted}} <span class="cart-preview-list-item-price-quantity">&times;{{quantity}}</span>
+                  </span>
+                {{/if}}
+              </div>
+            </div>
+
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="cart-preview-subtotal">
+      <div class="label">{{lang 'cart.checkout.subtotal'}}</div>
+      <div class="total">{{cart.sub_total.formatted}}</div>
+    </div>
+
+    <div class="cart-preview-footer">
+      <a href="{{urls.cart}}" class="button">{{lang 'header.view_cart'}}</a>
+      <a href="{{urls.checkout.single_address}}" class="button button-alt">{{lang 'cart.checkout_label'}}</a>
+    </div>
+
+  {{else}}
+    <p class="cart-preview-empty">{{lang "cart.checkout.empty_cart"}}</p>
+  {{/if}}
+</div>

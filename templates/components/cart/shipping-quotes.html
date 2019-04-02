@@ -1,0 +1,58 @@
+{{#if errors}}
+  <p class="shipping-estimator-error">
+    {{lang 'cart.shipping_estimator.errors.shipping_quote_failure'}}
+  </p>
+  {{#each errors}}
+    <p class="shipping-estimator-error">{{this}}</p>
+  {{/each}}
+{{else}}
+  <form>
+    {{#if quotes.shipping_methods}}
+      <ul class="shipping-quotes-list">
+        {{#each quotes.shipping_methods}}
+          <li class="shipping-quotes-method">
+            <dl>
+              <dt class="estimator-form-label">
+                <input id="shipping-quote-{{type}}-{{id}}" class="shipping-quote" type="radio" name="shipping_method" value="{{id}}">
+                <label class="shipping-quote-item-label" for="shipping-quote-{{type}}-{{id}}">
+                  {{provider_name}}
+                </label>
+              </dt>
+              <dd class="estimator-form-input estimator-form-input-price">
+                <label for="shipping-quote-{{type}}-{{id}}">
+                  <strong>{{cost.formatted}}</strong>
+                </label>
+              </dd>
+            </dl>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if quotes.ups_shipping_methods}}
+      <ul class="shipping-quotes-list">
+        {{#each quotes.ups_shipping_methods}}
+          <li class="shipping-quotes-method">
+            <dl>
+              <dt class="estimator-form-label">
+                <input id="shipping-quote-{{type}}-{{id}}" class="shipping-quote" type="radio" name="shipping_method" value="{{id}}">
+                <label class="shipping-quote-item-label" for="shipping-quote-{{type}}-{{id}}">
+                  {{#if logo_path}}
+                    <img src="{{logo_path}}" alt="{{description}}">
+                  {{/if}}
+                  {{provider_name}} &mdash; {{description}}
+                </label>
+              </dt>
+              <dd class="estimator-form-input estimator-form-input-price">
+                <label for="shipping-quote-{{type}}-{{id}}">
+                  <strong>{{cost.formatted}}</strong>
+                </label>
+              </dd>
+            </dl>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+    <input class="button select-shipping-quote" type="submit" value="{{lang 'cart.checkout.update'}}">
+  </form>
+{{/if}}

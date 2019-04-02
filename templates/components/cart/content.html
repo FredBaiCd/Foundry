@@ -1,0 +1,123 @@
+<div class="cart-overlay">
+  <span class="spinner"></span>
+</div>
+
+<table class="cart-table" data-cart-quantity="{{cart.quantity}}">
+  <thead class="cart-table-header"><tr><th class="cart-table-header-item cart-table-header-item-title" colspan="2">{{lang 'cart.checkout.item'}}</th><th class="cart-table-header-item cart-table-header-item-price">{{lang 'cart.checkout.price'}}</th><th class="cart-table-header-item cart-table-header-item-quantity">{{lang 'cart.checkout.quantity'}}</th><th class="cart-table-header-item cart-table-header-item-total">{{lang 'cart.checkout.total'}}</th></tr></thead>
+
+  {{!-- TODO: Fixup table cell and heading whitespace when Chrome fixes their table rendering bug --}}
+  <tbody class="cart-table-list">
+    {{#each cart.items}}
+      <tr class="cart-item" data-item-row>
+        <td class="cart-item-block cart-item-image">
+          <div class="cart-item-image-wrap">
+            {{#if type '===' 'GiftCertificate'}}
+              <a href="javascript:void(0)" style="background-image:url({{cdn '/assets/icons/giftcard-image.svg'}});">
+                <img src="{{cdn '/assets/icons/giftcard-image.svg'}}" alt="{{recipient}}">
+              </a>
+            {{else}}
+              {{#if image}}
+                <a href="{{url}}" style="background-image:url({{getImage image 'thumbnail'}});">
+                  <img src="{{getImage image 'thumbnail'}}" alt="{{image.alt}}">
+                </a>
+              {{else}}
+                <a href="{{url}}" style="background-image:url({{cdn '/assets/icons/icon-no-image.svg'}});">
+                  <img src="{{cdn '/assets/icons/icon-no-image.svg'}}" alt="{{lang 'product.no_image'}}">
+                </a>
+              {{/if}}
+            {{/if}}
+            <a class="cart-item-remove" href="{{remove_url}}" data-cart-remove-itemid="{{id}}">
+              <i class="icon-close"></i>
+            </a>
+          </div>
+        </td><td class="cart-item-block cart-item-details">
+          <div class="cart-item-details-wrap">
+            <div class="cart-item-details-wrap-inner">
+              <h4 class="cart-item-name"><a href="{{url}}">{{name}}</a></h4>
+              {{#if release_date}}
+                <p>({{release_date}})</p>
+              {{/if}}
+              {{#if options}}
+                <dl class="cart-item-options">
+                  {{#if brand.name}}
+                      <dt class="cart-item-option-title">{{lang 'cart.checkout.brand'}}:</dt>
+                      <dd class="cart-item-option-description">{{brand.name}}</dd>
+                  {{/if}}
+                  {{#each configurable_fields}}
+                      <dt class="cart-item-option-title">{{name}}:</dt>
+                      <dd class="cart-item-option-description">
+                    {{#if is_file}}
+                      <a href="/viewfile.php?prodfield={{../id}}&cartitem={{../../id}}">{{{value}}}</a>
+                    {{else}}
+                      {{{value}}}
+                    {{/if}}
+                    </dd>
+                  {{/each}}
+                  {{#each options}}
+                      <dt class="cart-item-option-title">{{name}}:</dt>
+                      <dd class="cart-item-option-description">
+                      {{#if is_file}}
+                        <a href="/viewfile.php?attributeId={{../id}}&cartitem={{../../id}}">{{{value}}}</a>
+                      {{else}}
+                        {{{value}}}
+                      {{/if}}
+                      </dd>
+                  {{/each}}
+                </dl>
+              {{/if}}
+              {{> components/cart/item-gift-wrap}}
+            </div>
+          </div>
+        </td><td class="cart-item-block cart-item-info">
+          <span class="cart-item-value" data-before="{{lang 'cart.checkout.price'}}: ">
+            <span class="{{#if price_discounted}}cart-item-discount{{/if}}">
+              {{price.formatted}}
+            </span>
+
+            {{#if price_discounted}}
+              <span>{{price_discounted.formatted}}</span>
+            {{/if}}
+          </span>
+        </td><td class="cart-item-block cart-item-quantity">
+          <div class="form-field-increments">
+            <div class="button-group" data-quantity-change>
+              <button class="button button-light" data-action="dec"><i class="increment-icon icon-minus"></i></button>
+              <input data-cart-update
+                data-cart-itemid="{{id}}"
+                class="form-input"
+                name="qty-{{id}}"
+                type="number"
+                data-orig-qty="{{quantity}}"
+                value="{{quantity}}"
+                min="0"
+                pattern="[0-9]*"
+                aria-live="polite"
+                id="qty-{{id}}">
+              <button class="button button-light" data-action="inc"><i class="increment-icon icon-plus"></i></button>
+            </div>
+          </div>
+        </td><td class="cart-item-block cart-item-total">
+          <strong class="cart-item-value {{#if total_discounted}}cart-item-discount{{/if}}" data-before="{{lang 'cart.checkout.total'}}: ">
+            {{total.formatted}}
+          </strong>
+
+          {{#if total_discounted}}
+            <strong>
+              {{total_discounted.formatted}}
+            </strong>
+          {{/if}}
+        </td>
+      </tr>
+      <tr class="cart-item cart-item-gift-wrap">
+        <td class="cart-item-block" colspan="5">
+          <div class="gift-wrap-form-wrapper" data-item-id="{{id}}"></div>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<script>
+    window.CART_ITEMS = {{{json cart.items}}}
+    window.CART_TOTAL = {{{json cart.sub_total}}}
+</script>

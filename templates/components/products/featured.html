@@ -1,0 +1,18 @@
+<section class="layout-block featured-products {{#if quickshop}}quickshop-enabled{{/if}}" data-quickshop>
+
+  <h2 class="section-title">{{lang 'home.featured_products'}}</h2>
+
+  <div class="product-grid-container">
+    <div class="product-grid-list">
+      <div class="product-grid-list-items {{rowcount}}">
+        {{#each products}}
+          {{> components/products/product-item
+            crop=../crop
+            as_low_as=../theme_settings.price_as_low_as
+          }}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+</section>

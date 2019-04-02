@@ -1,0 +1,468 @@
+{
+  "name": "Foundry - Custom v1.06 -2019-04-01",
+  "version": "1.11.0",
+  "css_compiler": "scss",
+  "autoprefixer_cascade": true,
+  "autoprefixer_browsers": [
+    "last 3 versions"
+  ],
+  "meta": {
+    "price": 14500,
+    "documentation_url": "https://www.pixelunion.net/support/foundry-theme-manual/",
+    "composed_image": "foundry-composed.png",
+    "features": [
+      "fully_responsive",
+      "multi_tiered_sidebar_menu",
+      "frontpage_slideshow",
+      "quick_add_to_cart",
+      "product_comparison_table",
+      "complex_search_filtering",
+      "customizable_product_selector",
+      "cart_suggested_products",
+      "free_customer_support",
+      "free_theme_upgrades",
+      "high_res_product_images",
+      "product_filtering",
+      "advanced_quick_view",
+      "product_showcase",
+      "persistent_cart",
+      "one_page_check_out",
+      "product_videos"
+    ],
+    "author_name": "Pixel Union",
+    "author_email": "support@pixelunion.net",
+    "author_support_url": "https://www.pixelunion.net/support/"
+  },
+  "resources": {
+    "cart": true,
+    "shop_by_brand": {
+      "limit": 6
+    }
+  },
+  "settings": {
+    "container-width": "medium",
+    "retina-logo": true,
+    "header_layout": "left-aligned",
+    "global-show-home-in-nav": true,
+    "global-show-pages-in-nav": true,
+    "global-show-categories-in-nav": true,
+    "categories-display-type": "categories-main-nav",
+    "homepage_carousel_transition": "fade-transition",
+    "homepage_carousel_width": "slide-fixed",
+    "homepage_products_featured": 4,
+    "featured_products_per_row": "row-of-four",
+    "featured-products-background-color": "#f9f9f9",
+    "homepage_products_popular": 0,
+    "popular_products_per_row": "row-of-four",
+    "popular-products-background-color": "#ffffff",
+    "homepage_products_new": 3,
+    "new_products_per_row": "row-of-three",
+    "new-products-background-color": "#ffffff",
+    "product_sharing_buttons": true,
+    "product_page_reviews_count": 10,
+    "product_page_products_related": 3,
+    "related-products-background-color": "#ffffff",
+    "related_products_per_row": "row-of-three",
+    "blog_sharing_buttons": true,
+    "banners_full_width": true,
+    "brands_per_page": 12,
+    "product_results_per_page": 12,
+    "products_per_row": "row-of-four",
+    "grid_aspect_ratio": "one-by-one",
+    "show_quick_shop": true,
+    "price_as_low_as": false,
+    "body-color": "#747474",
+    "body-background-color": "#f9f9f9",
+    "header-background-color": "#ffffff",
+    "footer-background-color": "#262729",
+    "footer-color": "#ffffff",
+    "accent-color": "#262729",
+    "border-color": "#d1d1d1",
+    "banner-background-color": "#262729",
+    "light-color": "#ffffff",
+    "light-accent-color": "#f9f9f9",
+    "dark-color": "#262729",
+    "dark-accent-color": "#18191a",
+    "carousel-color": "#ffffff",
+    "carousel-background-color": "#f9f9f9",
+    "carousel-button-color": "#262729",
+    "carousel-button-background-color": "#ffffff",
+    "carousel-nav-color": "#dbdbdb",
+    "carousel-heading-font": "Google_Source+Sans+Pro_300,400,400italic,700",
+    "carousel-caption-font": "Google_Source+Sans+Pro_300,400,400italic,700",
+    "carousel-heading-font-size": 65,
+    "carousel-caption-font-size": 25,
+    "heading-color": "#666666",
+    "section-title-color": "#333333",
+    "error-color": "#ff0000",
+    "success-color": "#62c242",
+    "disabled-color": "#bebebe",
+    "navigation-color": "#424242",
+    "navigation-hover-color": "#222222",
+    "input-background-color": "#ffffff",
+    "input-color": "#333333",
+    "input-border-color": "#e4e4e4",
+    "primary-button-text-color": "#ffffff",
+    "primary-button-background-color": "#262729",
+    "primary-button-hover": "#414141",
+    "secondary-button-text-color": "#262729",
+    "secondary-button-background-color": "#262729",
+    "secondary-button-hover": "#414141",
+    "disabled-button-text-color": "#ffffff",
+    "disabled-button-background-color": "#888888",
+    "meta-color": "#888888",
+    "font-size": 15,
+    "body-font": "Google_Lato_300,400,400italic,700",
+    "navigation-font": "Google_Lato_300,400,400italic,700",
+    "heading-font": "Google_Source+Sans+Pro_300,400,400italic,700",
+    "section-heading-font": "Google_Source+Sans+Pro_300,400,400italic,700",
+    "navigation-size": 15,
+    "navigation-padding": 15,
+    "button-font": "Google_Lato_300,400,400italic,700",
+    "meta-font": "Google_Lato_300,400,400italic,700",
+    "meta-size": 12,
+    "heading-size": 16,
+    "page-heading-size": 35,
+    "payment_apple_pay": true,
+    "payment_visa": true,
+    "payment_mastercard": true,
+    "payment_american_express": true,
+    "payment_discover": false,
+    "payment_paypal": true,
+    "footer_menu": "footer-show-brands",
+    "theme_credits": true,
+    "theme_copyright": true,
+    "sitemap": false,
+    "logo-position": "logo-left",
+    "style_apple_pay_button": "white-border",
+    "_images": {
+      "logo": {
+        "width": 500,
+        "height": 200
+      },
+      "account-logo": {
+        "width": 500,
+        "height": 200
+      },
+      "account-product-thumbnail": {
+        "width": 300,
+        "height": 300
+      },
+      "thumbnail": {
+        "width": 300,
+        "height": 300
+      },
+      "product-picklist-thumb": {
+        "width": 360,
+        "height": 360
+      },
+      "product_thumbnail": {
+        "width": 360,
+        "height": 360
+      },
+      "product_item": {
+        "width": 750,
+        "height": 750
+      },
+      "product_zoom": {
+        "width": 1000,
+        "height": 1000
+      }
+    }
+  },
+  "variations": [
+    {
+      "name": "Classic",
+      "id": "classic",
+      "meta": {
+        "desktop_screenshot": "foundry-classic.png",
+        "mobile_screenshot": "foundry-classic-mobile.png",
+        "description": "Foundry lets you build exactly the store you want. The definition of versatility, Foundry's minimal, grid-based design is quick to set up and easily adapts to showcase your products and brand. Accessible to shoppers across a range of industries, Foundry is the perfect theme to get your store up and running—and converting—today.",
+        "demo_url": "http://foundry-classic-demo.mybigcommerce.com",
+        "industries": [
+          "electronics_computers"
+        ],
+        "optimized_for": [
+          "multi_purpose",
+          "chrome_firefox_safari_ie_10",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "wholesale",
+          "single_product",
+          "large_catalog",
+          "mobile",
+          "music"
+        ]
+      },
+      "settings": {
+      },
+      "images": {
+      }
+    },
+    {
+      "name": "Light",
+      "id": "light",
+      "meta": {
+        "desktop_screenshot": "foundry-light.png",
+        "mobile_screenshot": "foundry-light-mobile.png",
+        "description": "Foundry lets you build exactly the store you want. The definition of versatility, Foundry's minimal, grid-based design is quick to set up and easily adapts to showcase your products and brand. Accessible to shoppers across a range of industries, Foundry is the perfect theme to get your store up and running—and converting—today.",
+        "demo_url": "http://foundry-light-demo.mybigcommerce.com",
+        "industries": [
+          "health_beauty"
+        ],
+        "optimized_for": [
+          "multi_purpose",
+          "chrome_firefox_safari_ie_10",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "wholesale",
+          "single_product",
+          "large_catalog",
+          "mobile",
+          "cosmetics"
+        ]
+      },
+      "settings": {
+        "body-font": "Google_Karla_400,400italic,700",
+        "button-font": "Google_Karla_400,400italic,700",
+        "meta-font": "Google_Karla_400,400italic,700",
+        "navigation-font": "Google_Karla_400,400italic,700",
+        "header_layout": "centered",
+        "homepage_carousel_width": "slide-fullwidth",
+        "homepage_carousel_transition": "slide-transition",
+        "border-color": "#eeeeee",
+        "footer-background-color": "#85888B",
+        "banner-background-color": "#85888B",
+        "accent-color": "#333538",
+        "dark-color": "#333538",
+        "carousel-button-color": "#333538",
+        "body-background-color": "#ffffff",
+        "carousel-background-color": "#ffffff",
+        "carousel-heading-font": "Google_Raleway_300,400,700",
+        "carousel-caption-font": "Google_Raleway_300,400,700",
+        "heading-font": "Google_Raleway_300,400,700",
+        "section-heading-font": "Google_Raleway_300,400,700",
+        "grid_aspect_ratio": "four-by-five",
+        "primary-button-background-color": "#333538",
+        "primary-button-hover": "#454545",
+        "secondary-button-text-color": "#333538",
+        "secondary-button-background-color": "#333538",
+        "secondary-button-hover": "#454545",
+        "featured-products-background-color": "#ffffff",
+        "featured_products_per_row": "row-of-four",
+        "homepage_products_featured": 4,
+        "new_products_per_row": "row-of-four",
+        "homepage_products_new": 4
+      },
+      "images": {
+      }
+    },
+    {
+      "name": "Moody",
+      "id": "moody",
+      "meta": {
+        "desktop_screenshot": "foundry-moody.png",
+        "mobile_screenshot": "foundry-moody-mobile.png",
+        "description": "Foundry lets you build exactly the store you want. The definition of versatility, Foundry's minimal, grid-based design is quick to set up and easily adapts to showcase your products and brand. Accessible to shoppers across a range of industries, Foundry is the perfect theme to get your store up and running—and converting—today.",
+        "demo_url": "http://foundry-moody-demo.mybigcommerce.com",
+        "industries": [
+          "fashion_jewelry"
+        ],
+        "optimized_for": [
+          "multi_purpose",
+          "chrome_firefox_safari_ie_10",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "wholesale",
+          "single_product",
+          "large_catalog",
+          "mobile",
+          "clothing"
+        ]
+      },
+      "settings": {
+        "container-width": "large",
+        "header_layout": "left-aligned",
+        "footer-background-color": "#ffffff",
+        "footer-color": "#313131",
+        "accent-color": "#5dc5e3",
+        "dark-color": "#313131",
+        "carousel-button-color": "#5dc5e3",
+        "body-background-color": "#ffffff",
+        "banner-background-color": "#5dc5e3",
+        "primary-button-background-color": "#5dc5e3",
+        "primary-button-hover": "#53afca",
+        "secondary-button-text-color": "#5dc5e3",
+        "secondary-button-background-color": "#5dc5e3",
+        "secondary-button-hover": "#53afca",
+        "new_products_per_row": "row-of-five",
+        "homepage_products_new": 5,
+        "new-products-background-color": "#ffffff",
+        "featured_products_per_row": "row-of-five",
+        "homepage_products_featured": 5,
+        "featured-products-background-color": "#ffffff",
+        "carousel-background-color": "#ffffff",
+        "products_per_row": "row-of-five",
+        "product_results_per_page": 15
+      },
+      "images": {
+      }
+    },
+    {
+      "name": "Warm",
+      "id": "warm",
+      "meta": {
+        "desktop_screenshot": "foundry-warm.png",
+        "mobile_screenshot": "foundry-warm-mobile.png",
+        "description": "Foundry lets you build exactly the store you want. The definition of versatility, Foundry's minimal, grid-based design is quick to set up and easily adapts to showcase your products and brand. Accessible to shoppers across a range of industries, Foundry is the perfect theme to get your store up and running—and converting—today.",
+        "demo_url": "http://foundry-warm-demo.mybigcommerce.com",
+        "industries": [
+          "automotive_industrial"
+        ],
+        "optimized_for": [
+          "multi_purpose",
+          "chrome_firefox_safari_ie_10",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "wholesale",
+          "single_product",
+          "large_catalog",
+          "mobile"
+        ]
+      },
+      "settings": {
+        "container-width": "medium",
+        "retina-logo": false,
+        "header_layout": "centered",
+        "global-show-home-in-nav": false,
+        "global-show-pages-in-nav": true,
+        "global-show-categories-in-nav": true,
+        "categories-display-type": "categories-main-nav",
+        "homepage_carousel_transition": "fade-transition",
+        "homepage_carousel_width": "slide-fullwidth",
+        "homepage_products_featured": 10,
+        "featured_products_per_row": "row-of-three",
+        "featured-products-background-color": "#ffffff",
+        "homepage_products_popular": 0,
+        "popular_products_per_row": "row-of-four",
+        "popular-products-background-color": "#ffffff",
+        "homepage_products_new": 0,
+        "new_products_per_row": "row-of-five",
+        "new-products-background-color": "#ffffff",
+        "product_sharing_buttons": true,
+        "product_page_reviews_count": 5,
+        "product_page_products_related": 0,
+        "related-products-background-color": "#ffffff",
+        "related_products_per_row": "row-of-four",
+        "blog_sharing_buttons": true,
+        "banners_full_width": true,
+        "brands_per_page": 12,
+        "product_results_per_page": 30,
+        "products_per_row": "row-of-four",
+        "grid_aspect_ratio": "three-by-two",
+        "show_quick_shop": false,
+        "price_as_low_as": false,
+        "body-color": "#4e4d4d",
+        "body-background-color": "#ffffff",
+        "header-background-color": "#424242",
+        "footer-background-color": "#191a17",
+        "footer-color": "#f8f5e5",
+        "accent-color": "#896236",
+        "border-color": "#e5d99d",
+        "banner-background-color": "#bb823f",
+        "light-color": "#ffffff",
+        "light-accent-color": "#f9f9f9",
+        "dark-color": "#191a17",
+        "dark-accent-color": "#000000",
+        "carousel-color": "#f8f5e5",
+        "carousel-background-color": "#ffffff",
+        "carousel-button-color": "#ffffff",
+        "carousel-button-background-color": "#bb823f",
+        "carousel-nav-color": "#ffffff",
+        "carousel-heading-font": "Google_Lato_300,400,400italic,700",
+        "carousel-caption-font": "Google_Lato_300,400,400italic,700",
+        "carousel-heading-font-size": 65,
+        "carousel-caption-font-size": 25,
+        "heading-color": "#7c7b7b",
+        "section-title-color": "#333333",
+        "error-color": "#ff0000",
+        "success-color": "#62c242",
+        "disabled-color": "#bebebe",
+        "navigation-color": "#ffffff",
+        "navigation-hover-color": "#bb823f",
+        "input-background-color": "#ffffff",
+        "input-color": "#333333",
+        "input-border-color": "#e4e4e4",
+        "primary-button-text-color": "#ffffff",
+        "primary-button-background-color": "#bb823f",
+        "primary-button-hover": "#9b6526",
+        "secondary-button-text-color": "#bb823f",
+        "secondary-button-background-color": "#bb823f",
+        "secondary-button-hover": "#9b6526",
+        "disabled-button-text-color": "#ffffff",
+        "disabled-button-background-color": "#888888",
+        "meta-color": "#272626",
+        "font-size": 17,
+        "body-font": "Google_Lato_300,400,400italic,700",
+        "navigation-font": "Google_Lato_300,400,400italic,700",
+        "heading-font": "Google_Lato_300,400,400italic,700",
+        "section-heading-font": "Google_Lato_300,400,400italic,700",
+        "navigation-size": 16,
+        "navigation-padding": 15,
+        "button-font": "Google_Lato_300,400,400italic,700",
+        "meta-font": "Google_Lato_300,400,400italic,700",
+        "meta-size": 13,
+        "heading-size": 16,
+        "page-heading-size": 30,
+        "payment_apple_pay": true,
+        "payment_visa": true,
+        "payment_mastercard": true,
+        "payment_american_express": true,
+        "payment_discover": false,
+        "payment_paypal": false,
+        "footer_menu": "footer-show-categories",
+        "theme_credits": false,
+        "theme_copyright": false,
+        "sitemap": false,
+        "logo-position": "logo-left",
+        "style_apple_pay_button": "white-border",
+        "_images": {
+          "logo": {
+            "width": 500,
+            "height": 200
+          },
+          "account-logo": {
+            "width": 500,
+            "height": 200
+          },
+          "account-product-thumbnail": {
+            "width": 300,
+            "height": 300
+          },
+          "thumbnail": {
+            "width": 300,
+            "height": 300
+          },
+          "product-picklist-thumb": {
+            "width": 360,
+            "height": 360
+          },
+          "product_thumbnail": {
+            "width": 360,
+            "height": 360
+          },
+          "product_item": {
+            "width": 750,
+            "height": 750
+          },
+          "product_zoom": {
+            "width": 1000,
+            "height": 1000
+          }
+        }
+      },
+      "images": {
+      }
+    }
+  ]
+}

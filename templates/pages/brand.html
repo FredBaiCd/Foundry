@@ -1,0 +1,58 @@
+---
+brand:
+  products:
+    limit: {{theme_settings.product_results_per_page}}
+---
+
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block product-grid">
+
+    <div class="page-header">
+      <h1 class="page-title centered">{{brand.name}}</h1>
+
+      {{#if brand.image}}
+        <div class="brand-header-logo">
+          <img src="{{getImage brand.image 'thumbnail'}}" alt="{{brand.image.alt}}" />
+        </div>
+      {{/if}}
+
+      {{{snippet 'brand'}}}
+    </div>
+
+    <div class="product-grid-container {{#if brand.faceted_search_enabled}}has-sidebar{{/if}}">
+
+      {{#if brand.products.length}}
+        {{#unless brand.faceted_search_enabled}}
+          <div class="product-grid-sorting">
+            {{> components/sorting sort=pagination.brand.sort}}
+          </div>
+        {{/unless}}
+
+        {{#if brand.facets.length}}
+          {{#if brand.faceted_search_enabled}}
+            <div class="product-grid-sidebar">
+              {{> components/sorting sort=pagination.brand.sort}}
+
+              <div class="product-grid-filters">
+                {{> components/brand/filters}}
+              </div>
+            </div>
+          {{/if}}
+        {{/if}}
+      {{/if}}
+
+      <div class="product-grid-list" data-quickshop>
+        {{> components/brand/product-index}}
+      </div>
+    </div>
+
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

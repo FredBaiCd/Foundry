@@ -1,0 +1,1 @@
+{"components/products/ratings":"<div class=\"rating-stars stars-{{size}}\" aria-hidden=\"true\">\n  {{#enumerate 1 5}}\n    {{#compare ../rating this operator='>='}}\n      <span class=\"icon-star star\"></span>\n    {{else}}\n      <span class=\"icon-star star star-empty\"></span>\n    {{/compare}}\n  {{/enumerate}}\n</div>\n"}

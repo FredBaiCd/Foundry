@@ -1,0 +1,15 @@
+<nav class="gift-certificate-navigation">
+  <ul class="gift-certificate-navigation-list">
+    <li class="gift-certificate-navigation-list-item {{#if gift_page '===' 'purchase'}}active{{/if}}">
+      <a href="{{urls.gift_certificate.purchase}}">{{lang 'gift_certificate.purchase.title'}}</a>
+    </li>
+
+    <li class="gift-certificate-navigation-list-item {{#if gift_page '===' 'redeem'}}active{{/if}}">
+      <a href="{{urls.gift_certificate.redeem}}">{{lang 'gift_certificate.redeem.title'}}</a>
+    </li>
+
+    <li class="gift-certificate-navigation-list-item {{#if gift_page '===' 'balance'}}active{{/if}}">
+      <a href="{{urls.gift_certificate.balance}}">{{lang 'gift_certificate.balance.title'}}</a>
+    </li>
+  </ul>
+</nav>

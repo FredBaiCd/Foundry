@@ -1,0 +1,73 @@
+<section class="navigation-wrap navigation-alternate
+  {{#if theme_settings.logo-position '==' 'logo-right'}}navigation-left{{/if}}
+  {{#if theme_settings.logo-position '==' 'logo-center'}}navigation-center{{/if}}">
+  <nav class="navigation">
+
+    <button class="navigation-toggle-mobile-wrapper close">
+      <span class="navigation-toggle-mobile"><i class="icon-close"></i></span>
+    </button>
+
+    <div class="mobile-branding">
+      {{#if settings.store_logo.image}}
+        <a class="header-branding-logo" href="{{urls.home}}">
+          <img class="header-branding-image" src="{{getImage settings.store_logo.image 'logo'}}" alt="{{settings.store_logo.title}}">
+        </a>
+      {{else}}
+        <h1 class="header-branding-text">
+          <a href="{{urls.home}}">{{settings.store_logo.title}}</a>
+        </h1>
+      {{/if}}
+    </div>
+
+    <ul class="mobile-actions">
+
+      <li class="mobile-action-item search-toggle">
+        <a href="#"><i class="icon-search"></i></a>
+      </li>
+
+      <li class="mobile-action-item cart-count-preview">
+        <a href="{{urls.cart}}">
+          <i class="icon-cart"></i>
+        </a>
+        <div class="cart-preview">
+          {{> components/cart/cart-preview}}
+        </div>
+      </li>
+
+      {{#if settings.account_creation_enabled}}
+        <li class="mobile-action-item user-account">
+          {{#if customer}}
+            <a class="navUser-action" href="{{urls.account.index}}"><i class="icon-user"></i></a>
+          {{else}}
+            <a class="navUser-action" href="{{urls.auth.login}}"><i class="icon-user"></i></a>
+          {{/if}}
+        </li>
+      {{/if}}
+
+    </ul>
+
+    <div class="mobile-search-wrapper search-form-wrapper">
+      <form class="search-form" action="{{urls.search}}">
+        <input class="search-input" name="search_query" placeholder="{{lang 'header.search'}}">
+      </form>
+    </div>
+
+    <div class="header-branding">
+      {{#if settings.store_logo.image}}
+        <a class="header-branding-logo" href="{{urls.home}}">
+          <img class="header-branding-image" src="{{getImage settings.store_logo.image 'logo'}}" alt="{{settings.store_logo.title}}">
+        </a>
+      {{else}}
+        <h1 class="header-branding-text">
+          <a href="{{urls.home}}">{{settings.store_logo.title}}</a>
+        </h1>
+      {{/if}}
+    </div>
+
+    {{> components/navigation-structure}}
+
+  </nav>
+
+  <div class="navigation-overlay"></div>
+
+</section>

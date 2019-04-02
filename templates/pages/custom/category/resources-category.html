@@ -1,0 +1,66 @@
+---
+category:
+  products:
+    limit: {{theme_settings.product_results_per_page}}
+---
+
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="allResourcesPage layout-block product-grid-header{{#if category.faceted_search_enabled}}has-sidebar{{/if}}">
+    <div class="category-details">
+      <div class="category-details-wrap {{#if category.image}}has-image{{/if}}">
+        <div class="category-details-row">
+
+          {{#if category.image}}
+            <div class="category-image">
+              <img src="{{getImage category.image 'product_item'}}">
+            </div>
+          {{/if}}
+            <h1 class="category-title">{{category.name}}</h1>
+
+            
+        <div class="product-grid-sidebar">
+            {{#if category.subcategories}}
+            <div class="sidebarBlock">
+                <ul class="navList">
+                    {{#each category.subcategories}}
+                    <li class="navList-item">
+                        <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/if}}
+        </div>
+          <div class="category-info {{#if category.description.length}}has-description{{/if}}">
+            {{#if category.description.length}}
+              <div class="category-description">{{{category.description}}}</div>
+            {{/if}}
+          </div>
+
+          {{{snippet 'categories'}}}
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layout-block product-grid">
+    <div class="product-grid-container {{#if category.faceted_search_enabled}}has-sidebar{{/if}}">
+
+
+
+      <div class="product-grid-list" data-quickshop>
+        {{> components/category/product-index}}
+      </div>
+
+    </div>
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

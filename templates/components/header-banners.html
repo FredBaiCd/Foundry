@@ -1,0 +1,35 @@
+{{#if banners.top}}
+  <section class="page-banner page-banner-top">
+    {{#each banners.top}}
+      <div class="page-banner-inner">
+        <div class="banner rte">
+          {{{this}}}
+        </div>
+      </div>
+    {{/each}}
+  </section>
+{{/if}}
+
+{{#if shipping_messages.length}}
+  <section class="page-banner shipping-banner">
+    {{#each shipping_messages}}
+      <div class="page-banner-inner">
+        <div class="banner">
+          {{{message}}}
+        </div>
+      </div>
+    {{/each}}
+  </section>
+{{/if}}
+
+{{#if product.shipping_messages.length}}
+  <section class="page-banner shipping-banner">
+    {{#each product.shipping_messages}}
+      <div class="page-banner-inner">
+        <div class="banner">
+          {{{message}}}
+        </div>
+      </div>
+    {{/each}}
+  </section>
+{{/if}}

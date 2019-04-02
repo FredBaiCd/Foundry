@@ -1,0 +1,23 @@
+<section class="layout-block newsletter-signup-block">
+  <div class="newsletter-signup">
+    <div class="newsletter-signup-wrap">
+
+      <h2 class="section-title hidden">{{lang 'newsletter.heading'}}</h2>
+
+      <div class="newsletter-signup-form">
+        <p class="newsletter-signup-label">{{lang 'newsletter.label'}}</p>
+        <form class="form" action="{{urls.subscribe.action}}" method="post">
+          <input type="hidden" name="action" value="subscribe">
+          <input type="hidden" name="nl_first_name" value="bc">
+          <input type="hidden" name="check" value="1">
+          <label class="form-label show-for-sr" for="nl_email">{{lang 'newsletter.email'}}</label>
+          <input class="newsletter-signup-email form-input" id="nl_email" name="nl_email" type="email" value="{{customer.email}}" placeholder="{{lang 'newsletter.email'}}">
+          <div class="newsletter-signup-submit">
+            <input class="submit button" type="submit" value="{{lang 'newsletter.subscribe'}}">
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

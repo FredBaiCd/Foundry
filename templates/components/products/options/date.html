@@ -1,0 +1,40 @@
+<div class="form-field form-field-options form-field-date{{#if required}} form-required{{/if}}"
+  data-product-attribute="date">
+  <label class="form-label">
+
+    <span class="form-field-title">
+      {{display_name}}
+      {{#if required}}<span class="required-text">{{lang 'common.required'}}</span>{{/if}}
+    </span>
+
+    <span class="form-field-control">
+      <span class="form-select-wrapper form-date-year">
+        <select class="form-input form-select" name="attribute[{{id}}][year]" {{#if required}}required{{/if}} aria-required="{{required}}">
+          <option disabled>{{lang 'forms.date.year'}}</option>
+          {{#enumerate earliest_year latest_year}}
+            <option value="{{this}}" {{#equals ../selected_date.year this}}selected="selected"{{/equals}}>{{this}}</option>
+          {{/enumerate}}
+        </select>
+      </span>
+
+      <span class="form-select-wrapper form-date-month">
+        <select class="form-input form-select" name="attribute[{{id}}][month]" {{#if required}}required{{/if}} aria-required="{{required}}">
+          <option disabled>{{lang 'forms.date.month'}}</option>
+          {{#enumerate 1 12}}
+            <option value="{{this}}" {{#equals ../selected_date.month this}}selected="selected"{{/equals}}>{{getShortMonth this}}</option>
+          {{/enumerate}}
+        </select>
+      </span>
+
+      <span class="form-select-wrapper form-date-day">
+        <select class="form-input form-select" name="attribute[{{id}}][day]" {{#if required}}required{{/if}} aria-required="{{required}}">
+          <option disabled>{{lang 'forms.date.day'}}</option>
+          {{#enumerate 1 31}}
+            <option value="{{this}}" {{#equals ../selected_date.day this}}selected="selected"{{/equals}}>{{this}}</option>
+          {{/enumerate}}
+        </select>
+        </span>
+    </span>
+
+  </label>
+</div>

@@ -1,0 +1,10 @@
+
+{{#if this.length ">" 1}}
+  <div class="product-thumbnails">
+    {{#each this}}
+      <span class="product-thumbnail {{#if @first}}active{{/if}}" data-image-position="{{@index}}" data-high-res="{{getImage this 'product_zoom'}}">
+        <img src="{{getImage this 'product_thumbnail'}}">
+      </span>
+    {{/each}}
+  </div>
+{{/if}}

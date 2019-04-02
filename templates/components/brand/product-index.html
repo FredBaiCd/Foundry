@@ -1,0 +1,16 @@
+{{> components/products/grid
+  products=brand.products
+  rowcount=theme_settings.products_per_row
+  show_compare=brand.show_compare
+  quickshop=theme_settings.show_quick_shop
+  crop=theme_settings.grid_aspect_ratio}}
+
+{{#if pagination.brand.links.length}}
+  {{> components/common/pagination pagination.brand}}
+{{/if}}
+
+<div class="progress-overlay">
+  <div class="inner">
+    {{> components/common/spinner}}
+  </div>
+</div>

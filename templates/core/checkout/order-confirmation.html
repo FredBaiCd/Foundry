@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{head.title}}</title>
+    {{{head.meta_tags}}}
+    {{{head.config}}}
+
+    <link href="{{head.favicon}}" rel="shortcut icon">
+
+    {{{checkout.checkout_head}}}
+    {{{stylesheet '/assets/css/optimized-checkout.css'}}}
+    {{getFontsCollection}}
+
+    <script type="text/javascript">
+      window.language = {{{langJson 'optimized_checkout'}}};
+    </script>
+  </head>
+
+  <body>
+    <header class="checkoutHeader optimizedCheckout-header">
+      <div class="checkoutHeader-content">
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+        <h2 class="checkoutHeader-heading">
+          <a class="checkoutHeader-link" href="{{urls.home}}">
+            {{#if checkout.header_image}}
+              <img alt="{{settings.store_logo.title}}" class="checkoutHeader-logo" id="logoImage" src="{{ checkout.header_image }}"/>
+            {{else}}
+              <span class="header-logo-text">{{settings.store_logo.title}}</span>
+            {{/if}}
+          </a>
+        </h2>
+      </div>
+    </header>
+
+    {{{checkout.order_confirmation_content}}}
+<!-- start number replacer -->
+<script type="text/javascript"><!--
+vs_account_id      = "Ch4Nm1nEDW00zwAy";
+//--></script>
+<script type="text/javascript" src="https://rw1.marchex.io/euinc/number-changer.js">
+</script>
+<!-- end ad widget -->
+
+  </body>
+  <script
+          src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>
+    // save po number to our database
+    if(sessionStorage.getItem("po_number")) {
+      const po_number = sessionStorage.getItem("po_number");
+      const postData = {
+        'store_hash':'{{settings.store_hash}}',
+        'order_id':'{{checkout.order.id}}',
+        'user_id':'{{customer.id}}',
+        'po_number': po_number
+      };
+
+      $.ajax({
+        type: "POST",
+        url: 'https://8l6t4dsd6e.execute-api.us-west-2.amazonaws.com/prod/purchaseOrderNumber',
+        contentType: "application/json",
+        data: JSON.stringify(postData),
+        success: function(data) {
+          console.log(data);
+          sessionStorage.removeItem("po_number");
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+        }
+      });
+    }
+  </script>
+</html>

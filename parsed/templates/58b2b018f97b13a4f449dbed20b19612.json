@@ -1,0 +1,1 @@
+{"components/common/forms/password":"\n<div class=\"form-field\">\n  <label class=\"form-label\" for=\"{{id}}\">{{label}}</label>\n  <input type=\"password\" id=\"{{id}}\" name=\"{{name}}\" class=\"form-input {{class}}\" autocomplete=\"off\">\n</div>\n"}

@@ -1,0 +1,60 @@
+<article class="product-grid-item" catalog-product-{{id}}>
+
+  <figure class="product-grid-item-thumbnail {{#if crop}}cropped-thumbnail aspect-{{crop}}{{/if}}">
+    <a class="{{#if crop}}cropped-thumbnail-block{{/if}}" href="{{url}}" title="{{name}}"
+      style="background-image:url({{#if image}}{{getImage image 'product_item'}}{{else}}{{cdn '/assets/icons/icon-no-image.svg'}}{{/if}});">
+
+      {{#if image}}
+        <img src="{{getImage image 'product_item'}}" alt="{{image.alt}}">
+      {{else}}
+        <img src="{{cdn '/assets/icons/icon-no-image.svg'}}" alt="{{lang 'product.no_image'}}">
+      {{/if}}
+    </a>
+
+    {{#if settings.show_product_rating}}
+      {{#if rating}}
+        <div class="product-grid-item-rating-wrap">
+          <div class="product-grid-item-rating">
+            {{> components/products/ratings rating=rating size="medium"}}
+          </div>
+        </div>
+      {{/if}}
+    {{/if}}
+
+    {{#if show_compare}}
+      <div class="product-item-compare">
+        <div class="form-field form-field-inline form-field-checkbox">
+          <div class="form-field-control">
+            <label class="form-label" for="compare-{{id}}">
+              <input type="checkbox" class="form-input form-checkbox" name="products[]" value="{{id}}" id="compare-{{id}}">
+              <span class="form-label-text">{{lang "products.compare"}}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+
+    {{#if out_of_stock_message.length}}
+      <span class="product-grid-item-sale-badge">{{out_of_stock_message}}</span>
+    {{else}}
+      {{#if price.saved}}
+        <span class="product-grid-item-sale-badge">{{lang 'product.on_sale'}}</span>
+      {{/if}}
+    {{/if}}
+
+    <span class="quick-shop-trigger" data-quick-shop-trigger="{{id}}">{{lang 'product.quick_shop'}}</span>
+  </figure>
+
+  <div class="product-grid-item-details">
+    <h3 class="product-item-title">
+      <a href="{{url}}" title="{{name}}">
+        {{name}}
+      </a>
+    </h3>
+
+    <div class="product-grid-item-price">
+      {{> components/products/price price=price}}
+    </div>
+  </div>
+
+</article>

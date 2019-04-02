@@ -1,0 +1,22 @@
+{{#if cart.coupons}}
+  <h2>{{lang 'cart.coupons.coupon' coupon=cart.coupons.0.code}}</h2>
+  <a class="button button-alt button-small" href="{{cart.coupons.0.remove_url}}">{{lang 'cart.coupons.remove_link'}} <i class="icon-close"></i></a>
+{{else}}
+  <a class="cart-extras-tab coupon-code-add" data-form-reveal>
+    {{lang 'cart.coupons.add_code'}}
+  </a>
+
+  <div class="cart-extras coupon-code hidden" data-toggled-form>
+    <a href="#" class="cart-extras-tab cart-extras-cancel" data-form-hide>
+      {{lang 'cart.coupons.cancel'}}
+    </a>
+    <p><strong>{{lang 'cart.coupons.coupon_code'}}</strong></p>
+    <form class="form coupon-form" method="post" action="{{urls.cart}}" data-form-type="coupon">
+      <div class="form-input-wrapper">
+        <input class="form-input" data-error="{{lang 'cart.coupons.empty_error'}}" type="text" name="couponcode" value="" placeholder="{{lang 'cart.coupons.coupon_code'}}" data-form-value>
+      </div>
+      <input class="button coupon-submit" type="submit" value="{{lang 'cart.coupons.button'}}" data-form-submit>
+      <input type="hidden" name="action" value="applycoupon">
+    </form>
+  </div>
+{{/if}}

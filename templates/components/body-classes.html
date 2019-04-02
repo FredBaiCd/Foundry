@@ -1,0 +1,25 @@
+template-{{page_type}}
+
+{{#if carousel.slides.length}}
+  has-carousel
+{{/if}}
+
+{{#if theme_settings.carousel-full-width}}
+  carousel-full-width
+{{/if}}
+
+{{#if banners.top}}
+  has-header-banner
+{{/if}}
+
+{{#if theme_settings.retina-logo}}
+  retina-logo
+{{/if}}
+
+{{#if theme_settings.banners_full_width}}
+  full-width-banners
+{{/if}}
+
+{{#unless in_production}}
+  dev-environment
+{{/unless}}

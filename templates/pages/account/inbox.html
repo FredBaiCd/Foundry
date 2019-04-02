@@ -1,0 +1,25 @@
+{{#partial "page"}}
+
+  <header class="sub-header">
+    {{> components/common/breadcrumbs breadcrumbs}}
+  </header>
+
+  <section class="layout-block">
+
+    <div class="page-header">
+      <h1 class="page-title">
+        {{lang 'core.account.messages.heading'}}
+      </h1>
+    </div>
+
+    <div class="page-container account-container">
+      <div class="page-content page-form account-form">
+        {{> core/account/inbox}}
+      </div>
+    </div>
+
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

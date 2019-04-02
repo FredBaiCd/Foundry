@@ -1,0 +1,57 @@
+<ul class="faceted-search-filter-list {{#if selected }}is-open{{/if}} {{#unless start_collapsed }}is-open{{/unless}}">
+  {{#each items}}
+    <li class="faceted-search-item">
+      <a href="{{url}}" title="{{lang 'product.reviews.stars_count' NUM=title}}" rel="nofollow" data-faceted-search-facet>
+
+        <input type="checkbox" class="facet-checkbox" {{#if selected}}checked{{/if}}>
+
+        <span class="faceted-search-item-label facet-rating">
+
+          {{#if title '==' '1'}}
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star"></span>
+            <span class="star icon-star"></span>
+            <span class="star icon-star"></span>
+            <span class="star icon-star"></span>
+          {{/if}}
+
+          {{#if title '==' '2'}}
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star"></span>
+            <span class="star icon-star"></span>
+            <span class="star icon-star"></span>
+          {{/if}}
+
+          {{#if title '==' '3'}}
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star"></span>
+            <span class="star icon-star"></span>
+          {{/if}}
+
+          {{#if title '==' '4'}}
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star"></span>
+          {{/if}}
+
+          {{#if title '==' '5'}}
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+            <span class="star icon-star checked"></span>
+          {{/if}}
+
+          {{#if ../show_product_counts}}<span class="faceted-search-item-count">({{ count }})</span>{{/if}}
+
+        </span>
+
+      </a>
+    </li>
+  {{/each}}
+</ul>
